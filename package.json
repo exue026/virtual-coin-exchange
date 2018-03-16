@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "repository": "git@github.com:exue026/virtual-coin-exchange.git",
   "author": "Ethan Xue <ethan.xue@gmail.com>",
-  "license": "UNLICENSED",
   "private": true,
   "scripts": {
     "client": "cd client && yarn start",
@@ -12,5 +11,9 @@
   },
   "dependencies": {
     "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "eslint": "^4.18.2",
+    "eslint-plugin-react": "^7.7.0"
   }
 }
