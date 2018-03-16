@@ -10,6 +10,7 @@ class App extends Component {
       response: '',
     }
   }
+
   componentDidMount() {
     this.hitApi()
       .then(res => this.setState({ response: res.data }))
