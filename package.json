@@ -1,13 +1,15 @@
 {
-  "name": "crypto",
+  "name": "virtual-coin-exchange",
   "version": "1.0.0",
+  "repository": "git@github.com:exue026/virtual-coin-exchange.git",
+  "author": "Ethan Xue <ethan.xue@gmail.com>",
+  "license": "UNLICENSED",
+  "private": true,
   "scripts": {
     "client": "cd client && yarn start",
     "server": "nodemon server.js",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
   },
-  "author": "Ethan Xue <ethan.xue@gmail.com>",
-  "license": "Apache License 2.0",
   "dependencies": {
     "express": "^4.16.3"
   }
