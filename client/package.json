@@ -1,5 +1,5 @@
 {
-  "name": "client",
+  "name": "virtual-coin-exchange",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
