@@ -3,9 +3,17 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
-  componentWillMount() {
-    console.log('hello');
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      displayText: '',
+    }
   }
+
+  componentWillMount() {
+  }
+
   render() {
     return (
       <div className="App">
