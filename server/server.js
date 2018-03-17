@@ -1,5 +1,5 @@
 import express from 'express'
-import morgan from 'morgan'
+import logger from 'morgan'
 import bodyParser from 'body-parser'
 
 import api from './api'
@@ -8,15 +8,11 @@ const app = express()
 const port = process.env.PORT || 8080;
 
 /* debug messages in the console */
-app.use(morgan('dev'))
+app.use(logger('dev'))
 
 /* parse http request body */
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
-
-app.get('/', (req, res, next) => {
-  res.send({ data: 'Hello, World!' });
-})
 
 /* main route */
 app.use('/api', api)
