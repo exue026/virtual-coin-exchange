@@ -5,7 +5,7 @@ import bodyParser from 'body-parser'
 import api from './api'
 
 const app = express()
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8000;
 
 /* debug messages in the console */
 app.use(logger('dev'))

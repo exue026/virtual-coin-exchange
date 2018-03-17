@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import 'app/styles/App.css';
 
 class App extends Component {
   constructor(props) {
@@ -33,7 +33,7 @@ class App extends Component {
           <h1 className="App-title">{this.state.displayText}</h1>
         </header>
       </div>
-    );
+    )
   }
 }
 
