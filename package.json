@@ -7,11 +7,13 @@
   "scripts": {
     "babel-node": "babel-node --presets es2015",
     "client": "cd client && yarn start",
-    "server": "nodemon --exec yarn babel-node -- server.js",
+    "server": "nodemon --exec yarn babel-node -- ./server/server.js",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
   },
   "dependencies": {
-    "express": "^4.16.3"
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "morgan": "^1.9.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
