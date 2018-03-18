@@ -2,10 +2,15 @@ import express from 'express'
 import logger from 'morgan'
 import bodyParser from 'body-parser'
 
-import api from './api'
+import api from './server/api'
 
 const app = express()
 const port = process.env.PORT || 8000;
+
+/* Only server static assets in production */
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
 /* debug messages in the console */
 app.use(logger('dev'))
