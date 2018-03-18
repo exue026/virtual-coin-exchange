@@ -10,7 +10,8 @@ const port = process.env.PORT || 8000;
 
 /* Only server static assets in production */
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, './client/build')))
+  const filePath = path.join(__dirname, '../client/build')
+  app.use(express.static(filePath))
 }
 
 /* debug messages in the console */

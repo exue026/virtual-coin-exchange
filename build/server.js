@@ -27,7 +27,8 @@ var port = process.env.PORT || 8000;
 
 /* Only server static assets in production */
 if (process.env.NODE_ENV === 'production') {
-  app.use(_express2.default.static(_path2.default.join(__dirname, './client/build')));
+  var filePath = _path2.default.join(__dirname, '../client/build');
+  app.use(_express2.default.static(filePath));
 }
 
 /* debug messages in the console */
