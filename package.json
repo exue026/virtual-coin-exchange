@@ -4,6 +4,11 @@
   "repository": "git@github.com:exue026/virtual-coin-exchange.git",
   "author": "Ethan Xue <ethan.xue@gmail.com>",
   "private": true,
+  "engines": {
+    "node": "6.10.0",
+    "npm": "3.10.10",
+    "yarn": "1.5.1"
+  },
   "scripts": {
     "babel-node": "babel-node --presets es2015",
     "client": "cd client && yarn start",
