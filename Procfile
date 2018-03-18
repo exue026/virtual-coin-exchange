@@ -1,1 +1,1 @@
-web: node server
+web: yarn babel-node -- server.js
