@@ -3,14 +3,22 @@
   "version": "1.0.0",
   "repository": "git@github.com:exue026/virtual-coin-exchange.git",
   "author": "Ethan Xue <ethan.xue@gmail.com>",
-  "license": "UNLICENSED",
   "private": true,
   "scripts": {
+    "babel-node": "babel-node --presets es2015",
     "client": "cd client && yarn start",
-    "server": "nodemon server.js",
+    "server": "nodemon --exec yarn babel-node -- server.js",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
   },
   "dependencies": {
-    "express": "^4.16.3"
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "morgan": "^1.9.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "eslint": "^4.18.2",
+    "eslint-plugin-react": "^7.7.0"
   }
 }
