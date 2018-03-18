@@ -1,1 +1,1 @@
-web: yarn babel-node -- server.js
+web: yarn prod && node ./build/server.js

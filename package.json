@@ -12,8 +12,11 @@
   "scripts": {
     "babel-node": "babel-node --presets es2015",
     "client": "cd client && yarn start",
-    "server": "nodemon --exec yarn babel-node -- server.js",
-    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+    "server": "nodemon --exec yarn babel-node -- ./server/server.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+    "clean": "rm -rf build && mkdir build",
+    "build-server": "babel -d ./build ./server -s",
+    "prod": "yarn clean && yarn build-server"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
