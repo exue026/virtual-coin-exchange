@@ -16,7 +16,8 @@
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "clean": "rm -rf build && mkdir build",
     "build-server": "babel -d ./build ./server -s",
-    "prod": "yarn clean && yarn build-server"
+    "prod": "yarn clean && yarn build-server",
+    "test": "cd client && yarn test"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
