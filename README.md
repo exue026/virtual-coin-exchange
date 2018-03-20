@@ -30,7 +30,6 @@ $ ./scripts/build.sh
 
 Remember to commit the changes before pushing to `Heroku`
 
-
 ## Additional Info
 
 Check out the [client](https://github.com/exue026/virtual-coin-exchange/tree/master/client) and [server](https://github.com/exue026/virtual-coin-exchange/tree/master/server) for more specific information.
