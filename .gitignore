@@ -10,11 +10,8 @@
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# -CSS-
-
-src/**/*.css
-
-# -NodeJS-
+# production
+/build
 
 # Logs
 logs

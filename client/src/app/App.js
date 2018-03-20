@@ -13,15 +13,15 @@ class App extends Component {
 
   componentWillMount() {
     this.hitApi()
-        .then(res => this.setState({displayText: res.data}))
-        .catch(err => console.log(err))
+      .then(res => this.setState({ displayText: res.data }))
+      .catch(err => console.log(err))
   }
 
   hitApi = async() => {
     const response = await fetch('/api')
-    const body = await response.json();
+    const body = await response.json()
 
-    if (response.status !== 200) throw Error(body.message);
+    if (response.status !== 200) throw Error(body.message)
     return body
   }
 
@@ -37,4 +37,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App
