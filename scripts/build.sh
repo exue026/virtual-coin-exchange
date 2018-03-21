@@ -14,6 +14,11 @@ echo Creating server build...
 echo '------------------'
 yarn prod
 echo '------------------'
+echo Committing build files to source control
+echo '------------------'
+git add -A
+git commit -m "added build files to source control"
+echo '------------------'
 echo Done.
 echo '------------------'
 

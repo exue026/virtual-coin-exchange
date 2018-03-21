@@ -8,6 +8,8 @@ install:
 - yarn && cd client && yarn && cd ..
 before_script: ./scripts/build.sh
 deploy:
+  on:
+    branch: setup-mongo
   provider: heroku
   app: virtual-coin-exchange
   api_key:
