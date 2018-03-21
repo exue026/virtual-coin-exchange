@@ -10,6 +10,7 @@ before_script: ./scripts/build.sh
 deploy:
   on:
     branch: setup-mongo
+  skip_cleanup: true
   provider: heroku
   app: virtual-coin-exchange
   api_key:
