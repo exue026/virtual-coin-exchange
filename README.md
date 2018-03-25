@@ -9,12 +9,20 @@
 ## Setup
 
 ```
-$ ./scripts/dev_install.sh
+$ ./scripts/install.sh
 ```
 
 ## Run
 
-To start up the frontend and server concurrently, do
+Install MongoDB if you don't have it. If you have it installed, run
+
+```
+sudo mongod
+```
+
+to start it locally.
+
+To start up the frontend and server concurrently, run
 
 ```
 $ yarn dev

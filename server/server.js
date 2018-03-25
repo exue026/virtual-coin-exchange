@@ -2,6 +2,8 @@ import express from 'express'
 import path from 'path'
 import logger from 'morgan'
 import bodyParser from 'body-parser'
+import mongoose from 'mongoose'
+import assert from 'assert'
 
 import api from './api'
 
@@ -13,6 +15,9 @@ if (process.env.NODE_ENV === 'production') {
   const filePath = path.join(__dirname, '../client/build')
   app.use(express.static(filePath))
 }
+
+/* connect to local MongoDB */
+mongoose.connect('mongodb://localhost:27017')
 
 /* debug messages in the console */
 app.use(logger('dev'))
