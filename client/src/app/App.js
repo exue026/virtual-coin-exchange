@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom'
 import axios from 'axios'
 
-import 'app/styles/app.css'
+import 'app/styles/App.css'
 
 import WebApi from './web-api'
 
