@@ -1,0 +1,22 @@
+@import 'src/shared/styles/main.scss';
+
+.login-form {
+  width: 400px;
+  height: 460px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #EDF0F3;
+  color: black;
+  border-radius: 2px;
+
+  form {
+    display: inherit;
+    align-self: inherit;
+    flex-direction: inherit;
+  }
+
+  input[type="radio"] {
+    margin-right: 5px;
+  }
+}

@@ -1,0 +1,20 @@
+@import 'src/shared/styles/main.scss';
+
+.mainpage-container {
+  color: white;
+
+  .mainpage-body {
+    height: 530px;
+    background-color:#3D515C;
+    padding: 24px 12px;
+  }
+
+  .login-container {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .site-intro-text {
+    width: 400px;
+  }
+}

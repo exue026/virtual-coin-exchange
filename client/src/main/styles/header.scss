@@ -1,0 +1,23 @@
+@import 'src/shared/styles/main.scss';
+
+.mainpage-header {
+  height: 52px;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 50px;
+  padding-right: 50px;
+  align-items: center;
+  background-color: #283e4a;
+
+  > div {
+    display: flex;
+  }
+
+  .mainpage-header-left {
+    color: white;
+  }
+
+  .credentials-container > *:not(:last-child) {
+    margin-right: 10px;
+  }
+}
