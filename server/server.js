@@ -3,7 +3,9 @@ import path from 'path'
 import logger from 'morgan'
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
-import assert from 'assert'
+import session from 'express-session'
+import passport from './passport'
+const MongoStore = require('connect-mongo')(session)
 
 import api from './api'
 
@@ -17,7 +19,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 /* connect to local MongoDB */
-mongoose.connect('mongodb://localhost:27017')
+mongoose.connect('mongodb://localhost:27017/virtual-coin-exchange')
 
 /* debug messages in the console */
 app.use(logger('dev'))
@@ -25,6 +27,16 @@ app.use(logger('dev'))
 /* parse http request body */
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
+
+/* authentication */
+app.use(session({
+  secret: 'keyboard cat',
+  store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  resave: false,
+  saveUninitialized: false,
+}))
+app.use(passport.initialize());
+app.use(passport.session());
 
 /* main route */
 app.use('/api', api)

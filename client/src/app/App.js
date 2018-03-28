@@ -1,38 +1,22 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import 'app/styles/App.css';
+import React, { Component } from 'react'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect,
+} from 'react-router-dom'
+
+import HomePage from '../home'
+
+import WebApi from './web-api'
+
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      displayText: '',
-    }
-  }
-
-  componentWillMount() {
-    this.hitApi()
-      .then(res => this.setState({ displayText: res.data }))
-      .catch(err => console.log(err))
-  }
-
-  hitApi = async() => {
-    const response = await fetch('/api/users')
-    const body = await response.json()
-
-    if (response.status !== 200) throw Error(body.message)
-    return body
-  }
-
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">{this.state.displayText}</h1>
-        </header>
-      </div>
+      <Router>
+        <Route exact path='/' component={HomePage} />
+      </Router>
     )
   }
 }
