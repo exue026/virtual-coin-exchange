@@ -6,6 +6,8 @@ import {
   Redirect,
 } from 'react-router-dom'
 
+import HomePage from '../home'
+
 import WebApi from './web-api'
 
 
@@ -13,19 +15,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App">
-          <header className="App-header">
-            <h1 className="App-title">{this.state.displayText}</h1>
-          </header>
-          <div>
-            <button onClick={this.login}>Log in</button>
-            <button onClick={this.logout}>Logout</button>
-            <ul>
-              <li><Link to='/public'>Public Page </Link></li>
-              <li><Link to='/protected'>Protected Page </Link></li>
-            </ul>
-          </div>
-        </div>
+        <Route exact path='/' component={HomePage} />
       </Router>
     )
   }
