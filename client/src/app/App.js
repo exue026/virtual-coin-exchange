@@ -7,7 +7,7 @@ import {
 import './styles/App.css'
 
 import MainPage from '../main/views'
-import HomePage from '../main/views'
+import HomePage from '../home/views'
 
 class App extends Component {
   render() {

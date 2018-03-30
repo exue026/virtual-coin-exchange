@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Strings from '../../shared/strings.js'
 
 class HomePage extends Component {
   render() {
@@ -7,3 +8,5 @@ class HomePage extends Component {
     )
   }
 }
+
+export default HomePage
