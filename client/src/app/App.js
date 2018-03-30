@@ -4,14 +4,22 @@ import {
   Route,
 } from 'react-router-dom'
 
+import './styles/App.css'
+
+import MainPage from '../main/views'
 import HomePage from '../main/views'
 
 class App extends Component {
   render() {
     return (
-      <Router>
-        <Route exact path='/' component={HomePage} />
-      </Router>
+      <div>
+        <Router>
+          <Route exact path='/' component={MainPage} />
+        </Router>
+        <Router>
+          <Route path='/home' component={HomePage} />
+        </Router>
+      </div>
     )
   }
 }

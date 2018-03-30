@@ -1,6 +1,7 @@
-@import 'src/shared/styles/main.scss';
-
 .mainpage-container {
+  @import 'header.scss';
+  @import 'footer.scss';
+  @import 'login.scss';
   color: white;
 
   .mainpage-body {

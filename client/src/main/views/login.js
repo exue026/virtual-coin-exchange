@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
 import WebApi from '../web-api'
-import '../styles/login.css'
 
 class Login extends Component {
   constructor(props) {
@@ -13,6 +12,7 @@ class Login extends Component {
       password: '',
     }
   }
+
   render() {
     return (
       <div className='login-form'>

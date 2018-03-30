@@ -4,7 +4,6 @@ import Header from './header'
 import Login from './login'
 import Footer from './footer'
 
-import '../styles/index.css'
 
 class MainPage extends Component {
   render() {
@@ -14,7 +13,7 @@ class MainPage extends Component {
         <div className='mainpage-body'>
           <div className='login-container'>
             <div className='site-intro-text'>
-              <h1>What's your strategy?</h1>
+              <h1 onClick={this.notify}>What's your strategy?</h1>
               <p>
                 Sign up to start your free session and test your cryptocurrency trading strategies
                 and expertise in our real time virtual simulator!
@@ -26,6 +25,14 @@ class MainPage extends Component {
         <Footer />
       </div>
     )
+  }
+
+  notify = () => {
+    /*
+    toast.success("Warning Notification !", {
+      position: toast.POSITION.BOTTOM_LEFT
+    })
+    */
   }
 }
 
