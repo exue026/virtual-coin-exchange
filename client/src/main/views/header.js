@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 
-import '../styles/header.css'
-
 import WebApi from '../web-api'
 
 class Header extends Component {

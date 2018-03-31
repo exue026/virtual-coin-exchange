@@ -4,14 +4,24 @@ import {
   Route,
 } from 'react-router-dom'
 
-import HomePage from '../main/views'
+import PrivateRoute from '../shared/views/private-route'
+
+import './styles/App.css'
+
+import MainPage from '../main/views'
+import HomePage from '../home/views'
 
 class App extends Component {
   render() {
     return (
-      <Router>
-        <Route exact path='/' component={HomePage} />
-      </Router>
+      <div>
+        <Router>
+          <Route exact path='/' component={MainPage} />
+        </Router>
+        <Router>
+          <PrivateRoute path='/home' component={HomePage} />
+        </Router>
+      </div>
     )
   }
 }
