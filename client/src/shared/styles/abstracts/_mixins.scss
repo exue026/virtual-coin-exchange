@@ -32,3 +32,16 @@
   }
 }
 
+@mixin position($top, $right, $bottom, $left) {
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin center-children {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

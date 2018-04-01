@@ -1,9 +1,10 @@
 import axios from 'axios'
 
 export default {
+  baseUrl: '/api/auth',
   async login(username, password) {
     try {
-      const response = await axios.post('/api/auth/login', {
+      const response = await axios.post(`${this.baseUrl}/login`, {
         username,
         password,
       })
@@ -14,12 +15,12 @@ export default {
   },
 
   async logout(username, password) {
-    const response = await axios.post('/api/auth/logout')
+    const response = await axios.post(`${this.baseUrl}/logout`)
     return response
   },
 
   async register(username, email, password) {
-    const response = await axios.post('/api/auth/register', {
+    const response = await axios.post(`${this.baseUrl}/register`, {
       username,
       email,
       password,

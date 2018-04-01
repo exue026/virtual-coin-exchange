@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Redirect, } from 'react-router-dom'
 
 import WebApi from '../web-api'
 
@@ -9,6 +10,7 @@ class Header extends Component {
     this.state = {
       username: '',
       password: '',
+      loggedIn: false,
     }
   }
   render() {
@@ -19,6 +21,11 @@ class Header extends Component {
       <Redirect to={from} />
     )
     */
+    if (this.state.loggedIn) {
+      return(
+        <Redirect to='/home' />
+      )
+    }
     return (
       <div className='mainpage-header'>
         <div className='mainpage-header-left'>
@@ -41,7 +48,9 @@ class Header extends Component {
       this.state.username,
       this.state.password,
     )
-    console.log(response)
+    this.setState({
+      loggedIn: true,
+    })
   }
 
   changeInput = (event) => {

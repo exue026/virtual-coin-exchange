@@ -1,0 +1,6 @@
+.loading-screen {
+  position: fixed;
+  @include position(0, 0, 0, 0);
+  @include center-children;
+  background-color:#3D515C;
+}

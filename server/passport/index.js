@@ -26,4 +26,10 @@ passport.deserializeUser((id, done) => {
   })
 })
 
+export const ensureAuthenticated = (req, res, next) => {
+  if (req.isAuthenticated()) { return next() }
+  console.log('NOT AUTHENTICATED')
+  return next()
+}
+
 export default passport
