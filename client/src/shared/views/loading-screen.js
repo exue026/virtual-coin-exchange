@@ -11,6 +11,7 @@ class LoadingScreen extends Component {
           height={this.props.dimension}
           width={this.props.dimension}
           color={this.props.color}
+          delay={300}
         />
       </div>
     )

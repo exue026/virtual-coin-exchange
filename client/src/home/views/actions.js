@@ -8,10 +8,11 @@ export const loadPageData = (userId) => async(dispatch, getState) => {
     type: LOADING_PAGE_DATA,
   })
   const response = await WebApi.getGamesForUser(userId)
-  console.log(response)
-  dispatch({
-    type: LOAD_PAGE_DATA,
-  })
+  setTimeout(() => {
+    dispatch({
+      type: LOAD_PAGE_DATA,
+    })
+  }, 2000)
 }
 
 
