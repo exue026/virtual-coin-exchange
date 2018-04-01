@@ -39,7 +39,6 @@ class Login extends Component {
       this.state.email,
       this.state.password,
     )
-    console.log(response)
   }
 
   changeInput = (event) => {

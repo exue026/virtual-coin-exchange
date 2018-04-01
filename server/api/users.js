@@ -1,7 +1,10 @@
 import express from 'express'
 import mongoose from 'mongoose'
 
-import { ensureAuthenticated } from '../passport'
+import {
+  ensureAuthenticated,
+  ensureObjectIdFormat,
+} from '../middleware'
 
 import User from '../models/user'
 
@@ -15,6 +18,13 @@ router.get('/:userId', ensureAuthenticated, (req, res, next) => {
     .catch(error => {
       res.send({ error, })
     })
+})
+
+router.get('/:userId/games',
+  ensureAuthenticated,
+  ensureObjectIdFormat('userId'),
+  (req, res, next) => {
+  res.send({ data: 'success!' })
 })
 
 export default router
