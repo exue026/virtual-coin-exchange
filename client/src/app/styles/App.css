@@ -7,8 +7,12 @@
  */
 /* Document
    ========================================================================== */
+@import url("https://fonts.googleapis.com/css?family=Raleway:300");
+@import url("https://fonts.googleapis.com/css?family=Raleway:300");
+@import url("https://fonts.googleapis.com/css?family=Raleway:300");
+@import url("https://fonts.googleapis.com/css?family=Raleway:300");
 html {
-  font-family: sans-serif;
+  font-family: 'Raleway', sans-serif;
   /* 1 */
   line-height: 1.15;
   /* 2 */
@@ -217,7 +221,7 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: sans-serif;
+  font-family: 'Raleway', sans-serif;
   /* 1 */
   font-size: 100%;
   /* 1 */
@@ -405,13 +409,46 @@ template {
 /**
  * Set up a decent box model on the root element
  */
+.primary-button {
+  background-color: #2A363B;
+  width: 100%;
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+  /* margin-left: 30%; */
+  margin-top: 20px; }
+
+.primary-button:hover {
+  cursor: pointer;
+  background-color: #1a2931; }
+
+.secondary-button {
+  background-color: #2A363B;
+  padding: 3px;
+  width: 90px;
+  border: 1px solid #41535d;
+  color: white;
+  border-radius: 5px;
+  /* margin-left: 30%; */ }
+
+.secondary-button:hover {
+  cursor: pointer;
+  background-color: #1a2931; }
+
+.text-box {
+  background-color: white;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  margin-bottom: 6px;
+  padding: 8px; }
+
 html {
   box-sizing: border-box; }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Raleway', sans-serif;
   overflow: auto; }
 
 /**
@@ -1094,7 +1131,7 @@ a {
  */
   color: white; }
   .mainpage-container html {
-    font-family: sans-serif;
+    font-family: 'Raleway', sans-serif;
     /* 1 */
     line-height: 1.15;
     /* 2 */
@@ -1193,7 +1230,7 @@ a {
   .mainpage-container optgroup,
   .mainpage-container select,
   .mainpage-container textarea {
-    font-family: sans-serif;
+    font-family: 'Raleway', sans-serif;
     /* 1 */
     font-size: 100%;
     /* 1 */
@@ -1283,12 +1320,40 @@ a {
     display: none; }
   .mainpage-container [hidden] {
     display: none; }
+  .mainpage-container .primary-button {
+    background-color: #2A363B;
+    width: 100%;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    /* margin-left: 30%; */
+    margin-top: 20px; }
+  .mainpage-container .primary-button:hover {
+    cursor: pointer;
+    background-color: #1a2931; }
+  .mainpage-container .secondary-button {
+    background-color: #2A363B;
+    padding: 3px;
+    width: 90px;
+    border: 1px solid #41535d;
+    color: white;
+    border-radius: 5px;
+    /* margin-left: 30%; */ }
+  .mainpage-container .secondary-button:hover {
+    cursor: pointer;
+    background-color: #1a2931; }
+  .mainpage-container .text-box {
+    background-color: white;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-bottom: 6px;
+    padding: 8px; }
   .mainpage-container html {
     box-sizing: border-box; }
   .mainpage-container body {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: 'Raleway', sans-serif;
     overflow: auto; }
   .mainpage-container *,
   .mainpage-container *::before,
@@ -1334,18 +1399,24 @@ a {
     height: 52px;
     display: flex;
     justify-content: space-between;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 25px;
+    padding-right: 25px;
     align-items: center;
-    background-color: #283e4a; }
+    background-color: #1a2931; }
     .mainpage-container .mainpage-header > div {
       display: flex; }
+    .mainpage-container .mainpage-header .sign-in {
+      background-color: white;
+      border: 1px solid #eee;
+      border-radius: 5px;
+      margin-bottom: 6px;
+      padding: 3px; }
     .mainpage-container .mainpage-header .mainpage-header-left {
       color: white; }
     .mainpage-container .mainpage-header .credentials-container > *:not(:last-child) {
       margin-right: 10px; }
   .mainpage-container html {
-    font-family: sans-serif;
+    font-family: 'Raleway', sans-serif;
     /* 1 */
     line-height: 1.15;
     /* 2 */
@@ -1444,7 +1515,7 @@ a {
   .mainpage-container optgroup,
   .mainpage-container select,
   .mainpage-container textarea {
-    font-family: sans-serif;
+    font-family: 'Raleway', sans-serif;
     /* 1 */
     font-size: 100%;
     /* 1 */
@@ -1534,12 +1605,40 @@ a {
     display: none; }
   .mainpage-container [hidden] {
     display: none; }
+  .mainpage-container .primary-button {
+    background-color: #2A363B;
+    width: 100%;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    /* margin-left: 30%; */
+    margin-top: 20px; }
+  .mainpage-container .primary-button:hover {
+    cursor: pointer;
+    background-color: #1a2931; }
+  .mainpage-container .secondary-button {
+    background-color: #2A363B;
+    padding: 3px;
+    width: 90px;
+    border: 1px solid #41535d;
+    color: white;
+    border-radius: 5px;
+    /* margin-left: 30%; */ }
+  .mainpage-container .secondary-button:hover {
+    cursor: pointer;
+    background-color: #1a2931; }
+  .mainpage-container .text-box {
+    background-color: white;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-bottom: 6px;
+    padding: 8px; }
   .mainpage-container html {
     box-sizing: border-box; }
   .mainpage-container body {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: 'Raleway', sans-serif;
     overflow: auto; }
   .mainpage-container *,
   .mainpage-container *::before,
@@ -1585,7 +1684,7 @@ a {
     height: 400px;
     background-color: black; }
   .mainpage-container html {
-    font-family: sans-serif;
+    font-family: 'Raleway', sans-serif;
     /* 1 */
     line-height: 1.15;
     /* 2 */
@@ -1684,7 +1783,7 @@ a {
   .mainpage-container optgroup,
   .mainpage-container select,
   .mainpage-container textarea {
-    font-family: sans-serif;
+    font-family: 'Raleway', sans-serif;
     /* 1 */
     font-size: 100%;
     /* 1 */
@@ -1774,12 +1873,40 @@ a {
     display: none; }
   .mainpage-container [hidden] {
     display: none; }
+  .mainpage-container .primary-button {
+    background-color: #2A363B;
+    width: 100%;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    /* margin-left: 30%; */
+    margin-top: 20px; }
+  .mainpage-container .primary-button:hover {
+    cursor: pointer;
+    background-color: #1a2931; }
+  .mainpage-container .secondary-button {
+    background-color: #2A363B;
+    padding: 3px;
+    width: 90px;
+    border: 1px solid #41535d;
+    color: white;
+    border-radius: 5px;
+    /* margin-left: 30%; */ }
+  .mainpage-container .secondary-button:hover {
+    cursor: pointer;
+    background-color: #1a2931; }
+  .mainpage-container .text-box {
+    background-color: white;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-bottom: 6px;
+    padding: 8px; }
   .mainpage-container html {
     box-sizing: border-box; }
   .mainpage-container body {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: 'Raleway', sans-serif;
     overflow: auto; }
   .mainpage-container *,
   .mainpage-container *::before,
@@ -1822,26 +1949,45 @@ a {
     position: absolute;
     width: 1px; }
   .mainpage-container .login-form {
-    width: 400px;
-    height: 460px;
+    width: 330px;
+    height: 370px;
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-color: #EDF0F3;
+    background-color: #eee;
     color: black;
-    border-radius: 2px; }
+    border-radius: 15px;
+    border: 3px solid #99B898;
+    padding: 10px;
+    margin-top: 50px; }
+    .mainpage-container .login-form .login-form-footer {
+      margin-top: 8px;
+      margin-bottom: 8px;
+      font-size: 15px; }
     .mainpage-container .login-form form {
       display: inherit;
       align-self: inherit;
       flex-direction: inherit; }
     .mainpage-container .login-form input[type="radio"] {
       margin-right: 5px; }
+  .mainpage-container .paragraph {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-top: -10px; }
+  .mainpage-container .header {
+    font-size: 50px;
+    width: 300px; }
   .mainpage-container .mainpage-body {
-    height: 530px;
-    background-color: #3D515C;
-    padding: 24px 12px; }
+    height: 600px;
+    background-image: url(../../shared/img/picture.jpg);
+    background-size: cover;
+    padding: 24px 12px;
+    box-shadow: inset 0 0 0 1000px rgba(40, 62, 74, 0.93); }
   .mainpage-container .login-container {
     display: flex;
     justify-content: space-evenly; }
   .mainpage-container .site-intro-text {
-    width: 400px; }
+    margin-top: 30px;
+    width: 500px;
+    margin-left: 10px;
+    margin-right: 10px; }
