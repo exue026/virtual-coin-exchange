@@ -22,8 +22,10 @@ class Header extends Component {
     )
     */
     if (this.state.loggedIn) {
+      localStorage.setItem('authenticated', JSON.stringify(true))
       return(
-        <Redirect to='/home' />
+        <Redirect to='/home'
+        />
       )
     }
     return (
