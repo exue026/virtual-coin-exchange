@@ -2,6 +2,7 @@
   @import 'header.scss';
   @import 'footer.scss';
   @import 'login.scss';
+  @import 'sidebar.scss';
   color: white;
   .paragraph {
     font-size: 20px;
@@ -17,7 +18,8 @@
     background-image: url(../../shared/img/picture.jpg);
     background-size: cover;
     padding: 24px 12px;
-    box-shadow: inset 0 0 0 1000px rgba(40,62,74,.93);
+    box-shadow: inset 0 0 0 1000px rgba(43, 55, 60, 0.8901960784313725);
+}
   }
 
   .login-container {

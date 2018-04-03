@@ -5,12 +5,14 @@ import Strings from '../../shared/strings.js'
 import Header from './header'
 import Login from './login'
 import Footer from './footer'
+import SideBar from './side-bar'
 
 class MainPage extends Component {
   render() {
     return (
       <div className='mainpage-container'>
         <Header />
+        <SideBar />
         <div className='mainpage-body'>
           <div className='login-container'>
             <div className='site-intro-text'>
