@@ -35,9 +35,9 @@ class Header extends Component {
         </div>
         <div className='mainpage-header-right'>
           <form className='credentials-container' onSubmit={this.login}>
-            <input type='text' placeholder='Username' value={this.state.username} onChange={this.changeInput} />
-            <input type='text' placeholder='Password' value={this.state.password} onChange={this.changeInput} />
-            <button>Sign in</button>
+            <input type='text' className = "sign-in" placeholder='Username' value={this.state.username} onChange={this.changeInput} />
+            <input type='text' className = "sign-in" placeholder='Password' value={this.state.password} onChange={this.changeInput} />
+            <button className = "secondary-button" >Sign in</button>
           </form>
         </div>
       </div>

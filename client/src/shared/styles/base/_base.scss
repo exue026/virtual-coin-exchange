@@ -1,10 +1,44 @@
 // -----------------------------------------------------------------------------
 // This file contains very basic styles.
 // -----------------------------------------------------------------------------
-
+@import url('https://fonts.googleapis.com/css?family=Raleway:300');
 /**
  * Set up a decent box model on the root element
  */
+.primary-button{
+  background-color: $dark-color;
+  width: 100%;
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+  /* margin-left: 30%; */
+  margin-top: 20px;
+}.primary-button:hover{
+  cursor: pointer;
+  background-color: $dark-accent;
+}
+
+.secondary-button{
+  background-color: $dark-color;
+  padding: 3px;
+  width: 90px;
+  border: 1px solid #41535d;
+  color: white;
+  border-radius: 5px;
+  /* margin-left: 30%; */
+}.secondary-button:hover{
+  cursor: pointer;
+  background-color: $dark-accent;
+}
+
+.text-box {
+  background-color: white;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  margin-bottom: 6px;
+  padding: 8px;
+}
+
 html {
   box-sizing: border-box;
 }
@@ -12,7 +46,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Raleway', sans-serif;
   overflow: auto;
 }
 
