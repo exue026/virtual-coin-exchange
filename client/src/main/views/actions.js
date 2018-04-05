@@ -1,13 +1,16 @@
 import WebApi from '../web-api'
+
+import { setUserId } from '../../home/views/actions'
+
 import {
   USERNAME,
   EMAIL,
   PASSWORD,
 } from './constants'
 
-export const UPDATE_LOGIN_TEXT = 'MAINPAGE/UPDATE_LOGIN_TEXT'
+export const UPDATE_LOGIN_TEXT = 'MAINPAGE/UPDATE_LOjIN_TEXT'
 export const UPDATE_REGISTER_TEXT = 'MAINPAGE/UPDATE_REGISTER_TEXT'
-export const LOGGEDIN = 'MAINPAGE/LOGIN'
+export const TOGGLE_LOGIN = 'MAINPAGE/TOGGLE_LOGIN'
 export const REGISTERED = 'MAINPAGE/REGISTERED'
 export const SHOW_NOTIFICATION = 'MAINPAGE/SHOW_NOTIFICATION'
 export const CLOSE_NOTIFICATION = 'MAINPAGE/CLOSE_NOTIFICATION'
@@ -34,10 +37,8 @@ export const login = () => async(dispatch, getState) => {
   const password = mainPage.login[PASSWORD]
   const response = await WebApi.login(username, password)
   if (response.status === 200) {
-    dispatch({
-      type: LOGGEDIN,
-    })
-    localStorage.setItem('authenticated', JSON.stringify(true))
+    setUserId(response.data.userId)(dispatch)
+    toggleLogin()(dispatch, getState)
   }
 }
 
@@ -58,9 +59,15 @@ export const register = () => async(dispatch, getState) => {
   }
 }
 
-export const closeNotification = () => async(dispatch, getState) => {
+export const closeNotification = () => (dispatch, getState) => {
   dispatch({
     type: CLOSE_NOTIFICATION,
+  })
+}
+
+export const toggleLogin = () => (dispatch) => {
+  dispatch({
+    type: TOGGLE_LOGIN,
   })
 }
 

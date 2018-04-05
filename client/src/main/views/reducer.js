@@ -2,6 +2,7 @@ import * as actions from './actions'
 import * as constants from './constants'
 
 const initialState = {
+  loggedIn: false,
   register: {
     [constants.USERNAME]: '',
     [constants.EMAIL]: '',
@@ -36,9 +37,14 @@ export default (state = initialState, action) => {
       }
 
     case actions.REGISTERED:
-    case actions.LOGGEDIN:
       return {
         ...initialState,
+      }
+
+    case actions.TOGGLE_LOGIN:
+      return {
+        ...state,
+        loggedIn: !state.loggedIn,
       }
 
     case actions.SHOW_NOTIFICATION:

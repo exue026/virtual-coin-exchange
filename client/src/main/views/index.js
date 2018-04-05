@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { ToastContainer, toast } from 'react-toastify';
+import { Redirect } from 'react-router-dom'
 
 import Header from './header'
 import Register from './register'
@@ -14,6 +15,7 @@ import {
   login,
   register,
   closeNotification,
+  toggleLogin,
 } from './actions'
 
 class MainPage extends Component {
@@ -22,7 +24,24 @@ class MainPage extends Component {
       this.notify()
     }
   }
+
+  componentWillUnmount() {
+    this.props.toggleLogin()
+  }
+
   render() {
+    /*
+    const { from } = this.props.location.state || { from: { pathname: '/' } }
+    return (
+      <Redirect to={from} />
+    )
+    */
+    if (this.props.loggedIn) {
+      return (
+        <Redirect to='/home' />
+      )
+    }
+
     return (
       <div className='mainpage-container'>
         <Header
@@ -61,6 +80,7 @@ class MainPage extends Component {
 }
 
 MainPage.propTypes = {
+  loggedIn: PropTypes.bool.isRequired,
   registerCreds: PropTypes.object.isRequired,
   loginCreds: PropTypes.object.isRequired,
   onUpdateRegister: PropTypes.func.isRequired,
@@ -69,9 +89,11 @@ MainPage.propTypes = {
   onLogin: PropTypes.func.isRequired,
   notificationMessage: PropTypes.string,
   closeNotification: PropTypes.func.isRequired,
+  toggleLogin: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = ({ mainPage }) => ({
+  loggedIn: mainPage.loggedIn,
   registerCreds: mainPage.register,
   loginCreds: mainPage.login,
   notificationMessage: mainPage.notificationMessage,
@@ -83,6 +105,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   onRegister: register,
   onLogin: login,
   closeNotification: closeNotification,
+  toggleLogin: toggleLogin,
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainPage)
