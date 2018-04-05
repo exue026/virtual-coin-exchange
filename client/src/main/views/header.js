@@ -1,18 +1,16 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Redirect, } from 'react-router-dom'
 
 import WebApi from '../web-api'
 
-class Header extends Component {
-  constructor(props) {
-    super(props)
+import {
+  USERNAME,
+  PASSWORD,
+} from './constants'
 
-    this.state = {
-      username: '',
-      password: '',
-      loggedIn: false,
-    }
-  }
+
+class Header extends Component {
   render() {
     /*
     const { from } = this.props.location.state || { from: { pathname: '/' } }
@@ -21,13 +19,6 @@ class Header extends Component {
       <Redirect to={from} />
     )
     */
-    if (this.state.loggedIn) {
-      localStorage.setItem('authenticated', JSON.stringify(true))
-      return(
-        <Redirect to='/home'
-        />
-      )
-    }
     return (
       <div className='mainpage-header'>
         <div className='mainpage-header-left'>
@@ -35,8 +26,20 @@ class Header extends Component {
         </div>
         <div className='mainpage-header-right'>
           <form className='credentials-container' onSubmit={this.login}>
-            <input type='text' className = "sign-in" placeholder='Username' value={this.state.username} onChange={this.changeInput} />
-            <input type='text' className = "sign-in" placeholder='Password' value={this.state.password} onChange={this.changeInput} />
+            <input
+              type='text'
+              className="sign-in"
+              placeholder='Username'
+              value={this.props.creds[USERNAME]}
+              onChange={e => this.changeInput(USERNAME, e.target.value)}
+            />
+            <input
+              type='text'
+              className="sign-in"
+              placeholder='Password'
+              value={this.props.creds[PASSWORD]}
+              onChange={(e) => this.changeInput(PASSWORD, e.target.value)}
+            />
             <button className = "secondary-button" >Sign in</button>
           </form>
         </div>
@@ -44,23 +47,20 @@ class Header extends Component {
     )
   }
 
-  login = async(event) => {
+  login = (event) => {
     event.preventDefault()
-    const response = await WebApi.login(
-      this.state.username,
-      this.state.password,
-    )
-    this.setState({
-      loggedIn: true,
-    })
+    this.props.onLogin()
   }
 
-  changeInput = (event) => {
-    const name = event.target.placeholder.toLowerCase()
-    this.setState({
-      [name]: event.target.value
-    })
+  changeInput = (name, value) => {
+    this.props.onUpdateText(name, value.slice(0))
   }
+}
+
+Header.propTypes = {
+  creds: PropTypes.object.isRequired,
+  onUpdateText: PropTypes.func.isRequired,
+  onLogin: PropTypes.func.isRequired,
 }
 
 export default Header

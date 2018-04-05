@@ -4,9 +4,10 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import LoadingScreen from '../../shared/views/loading-screen'
-import Strings from '../../shared/strings.js'
 
 import { loadPageData } from './actions'
+
+import SideBar from './side-bar'
 
 class HomePage extends Component {
   componentDidMount() {
@@ -22,7 +23,7 @@ class HomePage extends Component {
       )
     }
     return (
-      <div>HomePage</div>
+      <SideBar />
     )
   }
 }

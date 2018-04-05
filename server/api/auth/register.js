@@ -20,7 +20,7 @@ router.post('/', async(req, res, next) => {
   }
   if (await isRegistered(req.body.email)) {
     return res.status(400).send({
-      error: 'This user already exists.'
+      error: 'A user with this email already exists.'
     })
   }
   const user = new User({

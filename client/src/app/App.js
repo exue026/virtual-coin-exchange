@@ -4,8 +4,6 @@ import {
   Route,
 } from 'react-router-dom'
 
-import PrivateRoute from '../shared/views/private-route'
-
 import './styles/App.css'
 
 import MainPage from '../main/views'
