@@ -3,6 +3,7 @@ import * as actions from './actions'
 const initialState = {
   userId: null,
   loading: false,
+  games: [],
 }
 
 export default (state = initialState, action) => {
@@ -21,6 +22,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loading: false,
+        games: action.games,
       }
 
     default:

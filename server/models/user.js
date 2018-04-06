@@ -9,7 +9,6 @@ const userSchema = mongoose.Schema({
     {
       _id: mongoose.Schema.Types.ObjectId,
       budget: Number,
-      netWorth: Number,
       coins: [
         {
           _id: String,

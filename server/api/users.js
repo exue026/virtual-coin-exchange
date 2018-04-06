@@ -19,11 +19,12 @@ router.get('/:userId/games',
   ensureObjectIdFormat('userId'),
   async(req, res, next) => {
     try {
-      const response = await User.findById(req.params.userId)
+      const user = await User.findById(req.params.userId)
+      res.send({ data: user.games })
     } catch (error) {
-
+      console.log(error)
+      res.status(500).send({ error, })
     }
-  res.send({ data: 'success!' })
 })
 
 export default router

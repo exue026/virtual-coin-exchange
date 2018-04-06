@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import LoadingScreen from '../../shared/views/loading-screen'
+import FloatingActionButton from '../../shared/views/floating-action-button'
 
 import { loadPageData } from './actions'
 
@@ -11,7 +12,7 @@ import SideBar from './side-bar'
 
 class HomePage extends Component {
   componentDidMount() {
-    this.props.loadPageData('5ac020e74fdd2a4f38f1858b')
+    this.props.loadPageData()
   }
   render() {
     if (this.props.loading) {
@@ -22,19 +23,24 @@ class HomePage extends Component {
         />
       )
     }
+
     return (
-      <SideBar />
+      <div>
+        <FloatingActionButton onClick={() => {}} />
+      </div>
     )
   }
 }
 
 HomePage.propTypes = {
+  games: PropTypes.array.isRequired,
   loading: PropTypes.bool.isRequired,
   loadPageData: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = ({ homePage }) => ({
   loading: homePage.loading,
+  games: homePage.games,
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
