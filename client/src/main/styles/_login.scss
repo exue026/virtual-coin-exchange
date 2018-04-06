@@ -1,15 +1,21 @@
-@import 'src/shared/styles/main.scss';
-
 .login-form {
-  width: 400px;
-  height: 460px;
+  width: 330px;
+  height: 370px;
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: #EDF0F3;
+  background-color: #eee;
   color: black;
-  border-radius: 2px;
+  border-radius: 15px;
+  border: 3px solid $green;
+  padding: 10px;
+  margin-top: 50px;
 
+.login-form-footer{
+  margin-top: 8px;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
   form {
     display: inherit;
     align-self: inherit;

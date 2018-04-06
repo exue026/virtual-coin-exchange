@@ -5,14 +5,20 @@ import {
   combineReducers,
 } from 'redux'
 import thunk from 'redux-thunk'
+import throttle from 'lodash/throttle'
+
+import { saveState, loadState } from './local-storage'
 
 import mainPage from './main/views/reducer'
+import homePage from './home/views/reducer'
 
 const rootReducer = combineReducers({
   mainPage,
+  homePage,
 })
 
-const initialState = {}
+const persistedState = loadState()
+
 const enhancers = []
 const middleware = [
   thunk,
@@ -30,8 +36,16 @@ const composedEnhancers = compose(
 
 const store = createStore(
   rootReducer,
-  initialState,
+  persistedState,
   composedEnhancers,
 )
+
+store.subscribe(throttle(() => {
+  const { mainPage, homePage } = store.getState()
+  saveState({
+    mainPage,
+    homePage,
+  })
+}, 1000))
 
 export default store

@@ -14,14 +14,12 @@ import HomePage from '../home/views'
 class App extends Component {
   render() {
     return (
-      <div>
-        <Router>
+      <Router>
+        <div>
           <Route exact path='/' component={MainPage} />
-        </Router>
-        <Router>
           <PrivateRoute path='/home' component={HomePage} />
-        </Router>
-      </div>
+        </div>
+      </Router>
     )
   }
 }
