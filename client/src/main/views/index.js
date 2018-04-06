@@ -30,15 +30,10 @@ class MainPage extends Component {
   }
 
   render() {
-    /*
-    const { from } = this.props.location.state || { from: { pathname: '/' } }
-    return (
-      <Redirect to={from} />
-    )
-    */
     if (this.props.loggedIn) {
+      const { from } = this.props.location.state || { from: { pathname: '/home' } }
       return (
-        <Redirect to='/home' />
+        <Redirect to={from} />
       )
     }
 

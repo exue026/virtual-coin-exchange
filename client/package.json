@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "lodash": "^4.17.5",
     "node-sass-chokidar": "^1.1.2",
     "prop-types": "^15.6.1",
     "react": "^16.3.0",

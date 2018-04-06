@@ -4,32 +4,22 @@ import {
   Redirect,
 } from 'react-router-dom'
 
+import store from '../../store'
+
 const PrivateRoute = ({
   component: Component,
   ...args,
-}) => {
-  return (
+}) =>
     <Route
       {...args}
-      render={(props) => {
-        const isLoggedIn = JSON.parse(localStorage.getItem('authenticated'))
-        if (isLoggedIn) {
-          return (
-            <Component {...props} />
-          )
-        } else {
-          return (
-            <Redirect
-              to={{
-                pathname: '/login',
-                state: { from: props.location }
-              }}
-            />
-          )
-        }
+      render={props => {
+        const { homePage } = store.getState()
+        return (
+          homePage.userId
+          ? <Component {...props} />
+          : <Redirect  to={{ pathname: '/', state: { from: props.location } }} />
+        )
       }}
     />
-  )
-}
 
 export default PrivateRoute

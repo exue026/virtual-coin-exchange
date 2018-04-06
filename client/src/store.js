@@ -5,6 +5,7 @@ import {
   combineReducers,
 } from 'redux'
 import thunk from 'redux-thunk'
+import throttle from 'lodash/throttle'
 
 import { saveState, loadState } from './local-storage'
 
@@ -39,11 +40,12 @@ const store = createStore(
   composedEnhancers,
 )
 
-store.subscribe(() => {
-  const { mainPage } = store.getState()
+store.subscribe(throttle(() => {
+  const { mainPage, homePage } = store.getState()
   saveState({
     mainPage,
+    homePage,
   })
-})
+}, 1000))
 
 export default store
