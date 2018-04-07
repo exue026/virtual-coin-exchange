@@ -4,6 +4,7 @@ const initialState = {
   userId: null,
   loading: false,
   games: [],
+  selectedGameId: null,
 }
 
 export default (state = initialState, action) => {
@@ -23,6 +24,16 @@ export default (state = initialState, action) => {
         ...state,
         loading: false,
         games: action.games,
+      }
+    case actions.ENTER_GAME:
+      return {
+        ...state,
+        selectedGameId: action.gameId,
+      }
+    case actions.RESET_STATE:
+      return {
+        ...initialState,
+        userId: state.userId,
       }
 
     default:

@@ -11,10 +11,12 @@ import { saveState, loadState } from './local-storage'
 
 import mainPage from './main/views/reducer'
 import homePage from './home/views/reducer'
+import gamePage from './game/views/reducer'
 
 const rootReducer = combineReducers({
   mainPage,
   homePage,
+  gamePage,
 })
 
 const persistedState = loadState()
