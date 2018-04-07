@@ -9,10 +9,15 @@ export const loadPageData = () => async(dispatch, getState) => {
   dispatch({
     type: LOADING_PAGE_DATA,
   })
-  const response = await WebApi.getGamesForUser(homePage.userId)
-  dispatch({
-    type: LOAD_PAGE_DATA,
-  })
+  try {
+    const response = await WebApi.getGamesForUser(homePage.userId)
+    dispatch({
+      type: LOAD_PAGE_DATA,
+      games: response.data.data,
+    })
+  } catch(err) {
+    console.log(err)
+  }
 }
 
 export const setUserId = (userId) => (dispatch) => {

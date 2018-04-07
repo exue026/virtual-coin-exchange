@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import WebApi from '../web-api'
-
 import {
   USERNAME,
   EMAIL,
@@ -64,16 +62,6 @@ class Register extends Component {
   changeInput = (name, value) => {
     this.props.onUpdateText(name, value.slice(0))
   }
-
-  /*
-  render() {
-    const { from } = this.props.location.state || { from: { pathname: '/' } }
-    localStorage.setItem('authenticated', JSON.stringify(true))
-    return (
-      <Redirect to={from} />
-    )
-  }
-  */
 }
 
 Register.propTypes = {
