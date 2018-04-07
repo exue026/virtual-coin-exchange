@@ -10,6 +10,7 @@ import './styles/App.css'
 
 import MainPage from '../main/views'
 import HomePage from '../home/views'
+import GamePage from '../game/views'
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
         <div>
           <Route exact path='/' component={MainPage} />
           <PrivateRoute path='/home' component={HomePage} />
+          <PrivateRoute path='/games' component={GamePage} />
         </div>
       </Router>
     )
