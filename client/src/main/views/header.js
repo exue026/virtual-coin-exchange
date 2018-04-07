@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Redirect, } from 'react-router-dom'
-
-import WebApi from '../web-api'
 
 import {
   USERNAME,
@@ -12,13 +9,6 @@ import {
 
 class Header extends Component {
   render() {
-    /*
-    const { from } = this.props.location.state || { from: { pathname: '/' } }
-    localStorage.setItem('authenticated', JSON.stringify(true))
-    return (
-      <Redirect to={from} />
-    )
-    */
     return (
       <div className='mainpage-header'>
         <div className='mainpage-header-left'>
@@ -34,7 +24,7 @@ class Header extends Component {
               onChange={e => this.changeInput(USERNAME, e.target.value)}
             />
             <input
-              type='text'
+              type='password'
               className="sign-in"
               placeholder='Password'
               value={this.props.creds[PASSWORD]}

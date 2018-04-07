@@ -15,7 +15,7 @@ class SideBar extends Component {
   render() {
     return (
       <div className = "sidebar">
-        <img src={Profile} className = "picture"/>
+        <img src={Profile} className = "picture" alt='Profile Pic' />
         <div className = "profile">
           Ceiline Zhang
         </div>
