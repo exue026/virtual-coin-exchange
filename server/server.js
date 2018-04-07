@@ -18,8 +18,12 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static(filePath))
 }
 
-/* connect to local MongoDB */
-mongoose.connect('mongodb://localhost:27017/virtual-coin-exchange')
+/* connect to MongoDB */
+if (process.env.NODE_ENV === 'production') {
+  mongoose.connect(process.env.MONGODB_URI)
+} else {
+  mongoose.connect('mongodb://localhost:27017/virtual-coin-exchange')
+}
 
 /* debug messages in the console */
 app.use(logger('dev'))
