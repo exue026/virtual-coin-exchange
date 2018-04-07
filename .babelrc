@@ -1,4 +1,9 @@
 {
-    "presets": ["env"],
-    "plugins": []
+    "presets": [
+        ["env", {
+            "targets": {
+                "node": "current"
+            }
+        }]
+    ]
 }
