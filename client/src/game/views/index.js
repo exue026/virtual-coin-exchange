@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
+import Chart from '../../shared/views/chart'
 import LoadingScreen from '../../shared/views/loading-screen'
 import Sidebar from '../../home/views/side-bar'
 
@@ -24,8 +25,7 @@ class GamePage extends Component {
 
     return(
       <div>
-        <Sidebar />
-        GamePage
+        <Sidebar />}
       </div>
     )
   }
