@@ -1,6 +1,5 @@
 .game {
     height: 200px;
-    min-width:620px;
     background-size: cover;
     background-color: #fff;
     margin: 20px;
@@ -27,6 +26,11 @@
     .icon{
       top: 6px;
       position: relative;
+    }
+    .options{
+      color:white;
+      margin-left: 10px;
+      padding-top: 10px;
     }
     .iconTime{
       top: 6px;

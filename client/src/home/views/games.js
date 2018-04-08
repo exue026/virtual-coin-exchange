@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import Calendar from '../../shared/img/ic_perm_contact_calendar_black_24px.svg'
 import Money from '../../shared/img/ic_attach_money_black_24px.svg'
 import Timer from '../../shared/img/ic_timer_black_24px.svg'
-import Modal from 'react-modal'
+import Modal from '../../shared/views/modal'
+
 
 class Games extends Component {
   constructor(props) {
@@ -11,8 +12,54 @@ class Games extends Component {
     this.state = {
       username: '',
       email: '',
-      password: '',
+      open: false,
     }
+  }
+
+  onOpenModal = () => {
+    console.log("hi")
+    this.setState({
+      open:true,
+    })
+  }
+  onCloseModal = () => {
+    this.setState({
+      open:false,
+    })
+  }
+  renderModal = () => {
+    return(
+      <div>
+        <form>
+          <input
+            className = "dark-text-box"
+            type='text'
+            placeholder='Change Game Name'
+          />
+          <input
+            className = "dark-text-box"
+            type='text'
+            placeholder='Add new players'
+          />
+          <input
+            className = "dark-text-box"
+            type='password'
+            placeholder='Change duration of game'
+          />
+          <input
+            className = "dark-text-box"
+            type='password'
+            placeholder='Add additional budget'
+          />
+        </form>
+      </div>
+    )
+  }
+
+  settingModal = () => {
+    return(
+      <Modal title="Settings" message={this.renderModal()} closeModal={this.onCloseModal}/>
+    )
   }
 
   render() {
@@ -31,9 +78,10 @@ class Games extends Component {
           <button className = "third-button">
             Enter
           </button>
-          <button className = "third-button-accent">
+          <button className = "third-button-accent" onClick = {() => {this.onOpenModal()}}>
             Settings
           </button>
+          {this.state.open? this.settingModal() : ''}
         </div>
      </div>
     )

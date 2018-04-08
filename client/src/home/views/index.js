@@ -2,18 +2,70 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-
 import LoadingScreen from '../../shared/views/loading-screen'
 import FloatingActionButton from '../../shared/views/floating-action-button'
-
+import Modal from '../../shared/views/modal'
 import { loadPageData } from './actions'
 import TopBar from './topbar'
 import Games from './games'
 import SideBar from './side-bar'
 
 class HomePage extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      open: false,
+    }
+  }
+
   componentDidMount() {
     this.props.loadPageData()
+  }
+  onOpenNewModal = () => {
+    console.log('click')
+    this.setState({
+      open: true,
+    })
+  }
+  onCloseNewModal = () => {
+    this.setState({
+      open: false,
+    })
+  }
+  renderNewModal = () => {
+    return(
+      <div>
+        <form>
+          <input
+            className = "dark-text-box"
+            type='text'
+            placeholder='Game Name'
+          />
+          <input
+            className = "dark-text-box"
+            type='text'
+            placeholder='Add players'
+          />
+          <input
+            className = "dark-text-box"
+            type='password'
+            placeholder='Duration of game'
+          />
+          <input
+            className = "dark-text-box"
+            type='password'
+            placeholder='Starting Budget'
+          />
+        </form>
+     </div>
+    )
+  }
+  settingNewModal = () => {
+    console.log('open')
+    return(
+      <Modal title="New Game" message={this.renderNewModal()} closeModal={this.onCloseNewModal}/>
+    )
   }
   renderGames = () => {
     var gamesNow = [
@@ -67,7 +119,10 @@ class HomePage extends Component {
     return (
       <div className = "homepage">
         <TopBar />
-        <FloatingActionButton onClick={() => {}} />
+        <button className= "floating-action-button" onClick={() => {this.onOpenNewModal()}}>
+         +
+        </button>
+        {this.state.open ? this.settingNewModal() : ''}
         {this.renderGames()}
       </div>
     )
