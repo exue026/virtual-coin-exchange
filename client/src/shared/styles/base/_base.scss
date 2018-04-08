@@ -6,7 +6,7 @@
  * Set up a decent box model on the root element
  */
 .primary-button{
-  background-color: $dark-color;
+  background-color: $green;
   width: 100%;
   padding: 10px;
   color: white;
@@ -15,7 +15,7 @@
   margin-top: 20px;
 }.primary-button:hover{
   cursor: pointer;
-  background-color: $dark-accent;
+  background-color: $green;
 }
 
 .secondary-button{

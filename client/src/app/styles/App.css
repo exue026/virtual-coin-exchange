@@ -407,7 +407,7 @@ template {
  * Set up a decent box model on the root element
  */
 .primary-button {
-  background-color: #545865;
+  background-color: #5cc98b;
   width: 100%;
   padding: 10px;
   color: white;
@@ -417,7 +417,7 @@ template {
 
 .primary-button:hover {
   cursor: pointer;
-  background-color: #414653; }
+  background-color: #5cc98b; }
 
 .secondary-button {
   background-color: #545865;
@@ -724,7 +724,7 @@ a {
     background-color: #eee;
     color: black;
     border-radius: 15px;
-    border: 3px solid #5cc98b;
+    border: 3px solid #545865;
     padding: 10px;
     margin-top: 50px; }
     .mainpage-container .login-form .login-form-footer {
@@ -746,10 +746,10 @@ a {
     width: 300px; }
   .mainpage-container .mainpage-body {
     height: 600px;
-    background-image: url(../../shared/img/picture.jpg);
+    background-image: url(../../shared/img/background.png);
     background-size: cover;
     padding: 24px 12px;
-    box-shadow: inset 0 0 0 1000px rgba(43, 55, 60, 0.890196); }
+    box-shadow: inset 0 0 0 1000px rgba(65, 70, 83, 0.7); }
   .mainpage-container .login-container {
     display: flex;
     justify-content: space-evenly; }
