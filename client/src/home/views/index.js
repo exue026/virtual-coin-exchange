@@ -7,12 +7,52 @@ import LoadingScreen from '../../shared/views/loading-screen'
 import FloatingActionButton from '../../shared/views/floating-action-button'
 
 import { loadPageData } from './actions'
-
+import TopBar from './topbar'
+import Games from './games'
 import SideBar from './side-bar'
 
 class HomePage extends Component {
   componentDidMount() {
     this.props.loadPageData()
+  }
+  renderGames = () => {
+    var gamesNow = [
+      {
+        id: 1,
+        name: 'game1',
+        start: 'Monday',
+        end: 'Friday',
+        createdBy: 'Ceiline',
+        players: ['Ceiline', 'Ethan'],
+        startingBudget: '1000',
+      },
+      {
+        id: 2,
+        name: 'game2',
+        start: 'Monday',
+        end: 'Friday',
+        createdBy: 'Ceiline',
+        players: ['Ceiline', 'Ethan'],
+        startingBudget: '1000',
+      },
+      {
+        id: 3,
+        name: 'game3',
+        start: 'Monday',
+        end: 'Friday',
+        createdBy: 'Ceiline',
+        players: ['Ceiline', 'Ethan'],
+        startingBudget: '1000',
+      }
+    ]
+    return(
+      gamesNow.map( game =>
+        <Games
+          key={game.id}
+          game={game}
+        />
+      )
+    )
   }
   render() {
     if (this.props.loading) {
@@ -25,8 +65,10 @@ class HomePage extends Component {
     }
 
     return (
-      <div>
+      <div className = "homepage">
+        <TopBar />
         <FloatingActionButton onClick={() => {}} />
+        {this.renderGames()}
       </div>
     )
   }

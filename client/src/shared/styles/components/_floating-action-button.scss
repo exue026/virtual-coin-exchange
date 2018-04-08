@@ -1,20 +1,19 @@
 .floating-action-button {
-  width: 70px;
-  height: 70px;
-  background-color: red;
-  border-radius: 50%;
-  box-shadow: 0 6px 10px 0 #666;
-  transition: all 0.1s ease-in-out;
-
-  font-size: 50px;
-  color: white;
-  text-align: center;
-  line-height: 70px;
-
-  position: fixed;
-  right: 50px;
-  bottom: 50px;
-  cursor: pointer;
+  width: 55px;
+    height: 55px;
+    background-color: $green;
+    border-radius: 50%;
+    -webkit-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+    font-size: 50px;
+    color: white;
+    text-align: center;
+    /* line-height: 70px; */
+    /* bottom: 50px; */
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: 46%;
 }
 
 .floating-action-button:hover {
