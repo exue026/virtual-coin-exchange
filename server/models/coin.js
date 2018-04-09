@@ -9,6 +9,7 @@ const coinSchema = mongoose.Schema({
       marketCap: Number,
       price: Number,
       supply: Number,
+      sevenDayChange: Number,
       date: Date,
     }
   ]
