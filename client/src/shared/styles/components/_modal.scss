@@ -1,0 +1,51 @@
+.modalTop{
+  background-color: rgba(32, 37, 49, 0.93);
+  position: fixed;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  .logo{
+    font-size: 80px;
+    margin-top: -45px;
+    margin-bottom: -20px;
+  }
+  .close-button{
+    background-color: $dark-color;
+    width: 37px;
+    border-radius: 50%;
+    float: right;
+    top: 0;
+    color: white;
+    border: 1px;
+    margin-top: -50px;
+    margin-right: -20px;
+  }
+  .modalBottom{
+    height: 300px;
+    background-color: white;
+    margin-top: 13%;
+    /* margin: 20%; */
+    margin-left: 20%;
+    margin-right: 20%;
+    min-width: 420px;
+  }
+  .topModal{
+    height:100px;
+    background-color: $green;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    padding-top:30px;
+  }
+  .bodyModal{
+    height: 230px;
+    background-color: $dark-color;
+  }
+  .buttonModal{
+    height: 80px;
+    background-color: $dark-accent;
+  }
+
+}

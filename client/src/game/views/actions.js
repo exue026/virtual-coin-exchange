@@ -11,6 +11,6 @@ export const loadPageData = () => async(dispatch, getState) => {
     dispatch({
       type: LOAD_PAGE_DATA,
     })
-  }, 3000)
+  }, 1000)
 }
 
