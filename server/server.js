@@ -8,6 +8,7 @@ import passport from './passport'
 const MongoStore = require('connect-mongo')(session)
 
 import api from './api'
+import jobs from './jobs'
 
 const app = express()
 const port = process.env.PORT || 8000;
