@@ -86,8 +86,6 @@ xzc
 zcoin
 sky
 skycoin
-gbyte
-byteball-bytes
 nxt
 nxt
 rdd

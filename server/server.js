@@ -9,6 +9,7 @@ const MongoStore = require('connect-mongo')(session)
 
 import api from './api'
 import jobs from './jobs'
+import CONFIG from './config'
 
 const app = express()
 const port = process.env.PORT || 8000;
@@ -23,7 +24,7 @@ if (process.env.NODE_ENV === 'production') {
 if (process.env.NODE_ENV === 'production') {
   mongoose.connect(process.env.MONGODB_URI)
 } else {
-  mongoose.connect('mongodb://localhost:27017/virtual-coin-exchange')
+  mongoose.connect(CONFIG.MONGO_URL)
 }
 
 /* debug messages in the console */
