@@ -21,7 +21,9 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 /* connect to MongoDB */
+console.log(process.env.NODE_ENV)
 if (process.env.NODE_ENV === 'production') {
+  console.log(process.env.MONGODB_URI)
   mongoose.connect(process.env.MONGODB_URI)
 } else {
   mongoose.connect(CONFIG.MONGO_URL)
