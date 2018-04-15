@@ -11,8 +11,6 @@ agenda.define('update coin history', async(job, done) => {
 })
 
 agenda.on('ready', () => {
-  //agenda.every('1 week', 'update coin history')
-  //agenda.start()
+  agenda.every('1 week', 'update coin history')
+  agenda.start()
 })
-
-

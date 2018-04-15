@@ -25,7 +25,6 @@ export const addWeeklyCoinData = async() => {
         date: currentDate,
       }
       const results = await Coin.update({ _id: id}, {$push: { data: updates }})
-      break
     } catch (err) {
       console.log(id)
     }
