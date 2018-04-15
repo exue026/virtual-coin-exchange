@@ -12,7 +12,7 @@ export const getCoin = async(coinId) => {
     const response = await rp(options)
     return response[0]
   } catch(err) {
-    console.log(err)
+    console.log(err.error)
     throw err
   }
 }
