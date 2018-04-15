@@ -407,7 +407,7 @@ template {
  * Set up a decent box model on the root element
  */
 .primary-button {
-  background-color: #2A363B;
+  background-color: #5cc98b;
   width: 100%;
   padding: 10px;
   color: white;
@@ -417,10 +417,10 @@ template {
 
 .primary-button:hover {
   cursor: pointer;
-  background-color: #1a2931; }
+  background-color: #5cc98b; }
 
 .secondary-button {
-  background-color: #2A363B;
+  background-color: #545865;
   padding: 3px;
   width: 90px;
   border: 1px solid #41535d;
@@ -430,7 +430,85 @@ template {
 
 .secondary-button:hover {
   cursor: pointer;
-  background-color: #1a2931; }
+  background-color: #414653; }
+
+.third-button {
+  background-color: #5cc98b;
+  padding: 3px;
+  width: 90px;
+  border: 1px solid #5cc98b;
+  color: white;
+  border-radius: 5px;
+  transition: all 0.1s ease-in-out;
+  -webkit-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  /* margin-left: 30%; */
+  float: right;
+  margin-right: 10px;
+  margin-top: 8px; }
+
+.third-button:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  background-color: #5cc98b; }
+
+.third-button-accent {
+  background-color: white;
+  padding: 3px;
+  transition: all 0.1s ease-in-out;
+  -webkit-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  width: 90px;
+  border: 1px solid #5cc98b;
+  color: #5cc98b;
+  border-radius: 5px;
+  /* margin-left: 30%; */
+  float: right;
+  margin-right: 10px;
+  margin-top: 8px; }
+
+.third-button-accent:hover {
+  transform: scale(1.05);
+  cursor: pointer; }
+
+.cancel-button-accent {
+  background-color: white;
+  padding: 10px;
+  transition: all 0.1s ease-in-out;
+  -webkit-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  width: 47%;
+  border: 1px solid #5cc98b;
+  color: #5cc98b;
+  border-radius: 5px;
+  /* margin-left: 30%; */
+  float: left;
+  margin-left: 10px;
+  margin-top: 15px; }
+
+.cancel-button-accent:hover {
+  transform: scale(1.05);
+  cursor: pointer; }
+
+.submit-button {
+  background-color: #5cc98b;
+  padding: 10px;
+  width: 47%;
+  border: 1px solid #5cc98b;
+  color: white;
+  border-radius: 5px;
+  transition: all 0.1s ease-in-out;
+  -webkit-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  margin-left: 5px;
+  float: right;
+  margin-right: 10px;
+  margin-top: 15px; }
+
+.submit-button:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  background-color: #5cc98b; }
 
 .text-box {
   background-color: white;
@@ -438,6 +516,18 @@ template {
   border-radius: 5px;
   margin-bottom: 6px;
   padding: 8px; }
+
+.dark-text-box {
+  background-color: #414653;
+  border: 1px solid #414653;
+  border-radius: 5px;
+  margin-bottom: 6px;
+  padding: 8px;
+  margin: 10px;
+  width: 95%;
+  /* margin-left: 25%; */
+  margin-top: 10px;
+  margin-bottom: 0px; }
 
 html {
   box-sizing: border-box; }
@@ -531,23 +621,25 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #3D515C; }
+  background-color: #545865; }
 
 .floating-action-button {
-  width: 70px;
-  height: 70px;
-  background-color: red;
+  width: 55px;
+  height: 55px;
+  background-color: #5cc98b;
   border-radius: 50%;
-  box-shadow: 0 6px 10px 0 #666;
+  -webkit-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
   font-size: 50px;
   color: white;
   text-align: center;
-  line-height: 70px;
-  position: fixed;
-  right: 50px;
-  bottom: 50px;
-  cursor: pointer; }
+  /* line-height: 70px; */
+  /* bottom: 50px; */
+  cursor: pointer;
+  margin-top: 20px;
+  margin-left: 46%;
+  border: 1px; }
 
 .floating-action-button:hover {
   box-shadow: 0 6px 14px 0 #666;
@@ -556,6 +648,50 @@ a {
 
 svg.recharts-surface {
   overflow: visible; }
+
+.modalTop {
+  background-color: rgba(32, 37, 49, 0.93);
+  position: fixed;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1; }
+  .modalTop .logo {
+    font-size: 80px;
+    margin-top: -45px;
+    margin-bottom: -20px; }
+  .modalTop .close-button {
+    background-color: #545865;
+    width: 37px;
+    border-radius: 50%;
+    float: right;
+    top: 0;
+    color: white;
+    border: 1px;
+    margin-top: -50px;
+    margin-right: -20px; }
+  .modalTop .modalBottom {
+    height: 300px;
+    background-color: white;
+    margin-top: 13%;
+    /* margin: 20%; */
+    margin-left: 20%;
+    margin-right: 20%;
+    min-width: 420px; }
+  .modalTop .topModal {
+    height: 100px;
+    background-color: #5cc98b;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    padding-top: 30px; }
+  .modalTop .bodyModal {
+    height: 230px;
+    background-color: #545865; }
+  .modalTop .buttonModal {
+    height: 80px;
+    background-color: #414653; }
 
 .mainpage-container {
   color: white; }
@@ -566,7 +702,7 @@ svg.recharts-surface {
     padding-left: 25px;
     padding-right: 25px;
     align-items: center;
-    background-color: #1a2931; }
+    background-color: #414653; }
     .mainpage-container .mainpage-header > div {
       display: flex; }
     .mainpage-container .mainpage-header .sign-in {
@@ -591,7 +727,7 @@ svg.recharts-surface {
     background-color: #eee;
     color: black;
     border-radius: 15px;
-    border: 3px solid #99B898;
+    border: 3px solid #545865;
     padding: 10px;
     margin-top: 50px; }
     .mainpage-container .login-form .login-form-footer {
@@ -613,10 +749,10 @@ svg.recharts-surface {
     width: 300px; }
   .mainpage-container .mainpage-body {
     height: 600px;
-    background-image: url(../../shared/img/picture.jpg);
+    background-image: url(../../shared/img/background.png);
     background-size: cover;
     padding: 24px 12px;
-    box-shadow: inset 0 0 0 1000px rgba(43, 55, 60, 0.890196); }
+    box-shadow: inset 0 0 0 1000px rgba(65, 70, 83, 0.7); }
   .mainpage-container .login-container {
     display: flex;
     justify-content: space-evenly; }
@@ -626,7 +762,73 @@ svg.recharts-surface {
     margin-left: 10px;
     margin-right: 10px; }
 
-.sidebar {
+.homepage {
+  height: 1000px;
+  /* background-image: url(/static/media/picture.8dab5c54.jpg); */
+  background-size: cover;
+  /* -webkit-box-shadow: inset 0 0 0 1000px rgba(43, 55, 60, 0.890196); */
+  /* box-shadow: inset 0 0 0 1000px rgba(43, 55, 60, 0.890196); */
+  background-color: #545865; }
+  .homepage .mainpage-header {
+    height: 52px;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 25px;
+    padding-right: 25px;
+    align-items: center;
+    background-color: #414653; }
+    .homepage .mainpage-header > div {
+      display: flex; }
+    .homepage .mainpage-header .sign-in {
+      background-color: white;
+      border: 1px solid #eee;
+      border-radius: 5px;
+      margin-bottom: 6px;
+      padding: 3px; }
+    .homepage .mainpage-header .mainpage-header-left {
+      color: white; }
+    .homepage .mainpage-header .credentials-container > *:not(:last-child) {
+      margin-right: 10px; }
+  .homepage .game {
+    height: 200px;
+    background-size: cover;
+    background-color: #fff;
+    margin: 20px;
+    margin-left: 75px;
+    margin-right: 75px;
+    padding: 10px;
+    border-radius: 15px;
+    border: 3px solid #99b898; }
+    .homepage .game .nameBar {
+      height: 130px;
+      background-image: url(/static/media/background.bfe757c7.png);
+      background-size: cover;
+      box-shadow: inset 0 0 0 1000px rgba(65, 70, 83, 0.7);
+      color: white;
+      margin-left: -13px;
+      margin-right: -13px;
+      text-align: center;
+      padding-top: 30px;
+      font-size: 40px; }
+    .homepage .game .information {
+      margin-bottom: 8px; }
+    .homepage .game .icon {
+      top: 6px;
+      position: relative; }
+    .homepage .game .options {
+      color: white;
+      margin-left: 10px;
+      padding-top: 10px; }
+    .homepage .game .iconTime {
+      top: 6px;
+      margin-left: 5%;
+      /* margin-right: 6px; */
+      position: relative; }
+  .homepage .form-header {
+    font-size: 50px;
+    width: 300px; }
+
+.game-page-container .sidebar {
   width: 250px;
   background-image: url(../../shared/img/background.png);
   background-size: cover;
@@ -635,21 +837,21 @@ svg.recharts-surface {
   height: 100%;
   font-size: 20px;
   top: 0px; }
-  .sidebar .menu {
+  .game-page-container .sidebar .menu {
     top: 300px;
     background-color: #1d2629;
     height: 100%; }
-  .sidebar .picture {
+  .game-page-container .sidebar .picture {
     width: 150px;
     border-radius: 50%;
     margin-left: 50px;
     margin-top: 30px;
-    border: 5px solid #99B898; }
-  .sidebar .profile {
+    border: 5px solid #5cc98b; }
+  .game-page-container .sidebar .profile {
     margin-top: 15px;
     text-align: center;
     margin-bottom: 20px; }
-  .sidebar .title {
+  .game-page-container .sidebar .title {
     font-size: 15px;
     width: 250px;
     height: 60px;
@@ -658,5 +860,5 @@ svg.recharts-surface {
     padding-top: 20px;
     border-bottom: 1px solid #2a363b;
     padding-left: 20px; }
-  .sidebar .title:hover {
+  .game-page-container .sidebar .title:hover {
     background-color: #3c4d54; }

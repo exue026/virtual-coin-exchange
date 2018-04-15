@@ -1,0 +1,29 @@
+.mainpage-header {
+  height: 52px;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 25px;
+  padding-right: 25px;
+  align-items: center;
+  background-color: $dark-accent;
+
+  > div {
+    display: flex;
+  }
+
+  .sign-in{
+    background-color: white;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-bottom: 6px;
+    padding: 3px;
+  }
+
+  .mainpage-header-left {
+    color: white;
+  }
+
+  .credentials-container > *:not(:last-child) {
+    margin-right: 10px;
+  }
+}

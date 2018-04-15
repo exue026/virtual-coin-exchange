@@ -5,14 +5,16 @@ import { connect } from 'react-redux'
 
 import Chart from '../../shared/views/chart'
 import LoadingScreen from '../../shared/views/loading-screen'
-import Sidebar from '../../home/views/side-bar'
+import Sidebar from './side-bar'
 
 import { loadPageData } from './actions'
 
 class GamePage extends Component {
+
   componentDidMount() {
     this.props.loadPageData()
   }
+
   render() {
     if (this.props.loading) {
       return (
@@ -24,8 +26,9 @@ class GamePage extends Component {
     }
 
     return(
-      <div>
-        <Sidebar />}
+      <div className='game-page-container'>
+        <Sidebar />
+        {/* your code here */}
       </div>
     )
   }
