@@ -73,23 +73,45 @@ export const getCoinDomIds = () => {
 
 export const serializeCoin = (string, date) => {
   const properties = string.trim().replace(/\n\n/g, '\n').split('\n').slice(1)
-  const supply = Number(properties[4].replace(/,/g, ''))
-  if (isNaN(supply)) {
-    console.log(supply)
-    console.log(properties)
+  let coinId = properties[0].trim().toLowerCase().replace(' ', '-')
+  let price = Number(properties[3].trim().slice(1).replace(/,/g, ''))
+  let supply = Number(properties[4].trim().replace(/,/g, ''))
+  let marketCap = Number(properties[2].trim().slice(1).replace(/,/g, ''))
+  if (properties[5] === undefined) {
+    properties[5] = '-1?'
   }
+  let sevenDayChange = Number(properties[5].trim().slice(0, -1))
+  if (coinId === 'litecoin') {
+    /*
+    supply = Number(properties[5].trim().replace(/,/g, ''))
+    sevenDayChange = Number(properties[6].trim().slice(0, -1))
+    */
+  }
+  if (coinId === 'wanchain') {
+    /*
+    supply = -1
+    marketCap = -1
+    sevenDayChange = 0
+    */
+  }
+  console.log('===========')
+  console.log(coinId, price, supply, marketCap, sevenDayChange)
+  if (isNaN(price) || isNaN(supply) || isNaN(marketCap) || isNaN(sevenDayChange)) {
+    console.log(coinId, '!!!!!!!!!!!!!!!!!!!!!!!!')
+  }
+  console.log('===========')
   /* ready to be inserted into db */
   const serializedProperties = {
     _id: mongoose.Types.ObjectId(),
-    price: Number(properties[3].slice(1).replace(/,/g, '')),
-    marketCap: Number(properties[2].slice(1).replace(/,/g, '')),
-    supply: 0,
-    sevenDayChange: Number(properties[5].slice(0, -1)),
+    price: price,
+    marketCap: marketCap,
+    supply: supply,
+    sevenDayChange: sevenDayChange,
     date: date,
   }
   return {
     serializedProperties,
-    coinId: properties[0].trim().toLowerCase().replace(' ', '-'),
+    coinId: coinId,
   }
 }
 
@@ -104,7 +126,7 @@ export const populateHistory = async() => {
   const dates = $(start).nextAll().find('a').toArray()
   const ids = await getCoinDomIds()
 
-  for (let i = 0; i < dates.length; i++) {
+  for (let i = 67; i <= 67; i++) {
     const url = dates[i].attribs.href
     console.log(url)
     $ = await rp(options(url))
@@ -119,35 +141,10 @@ export const populateHistory = async() => {
           .text()
         const date = new Date(url.slice(12, 16), Number(url.slice(16, 18) - 1), url.slice(18, 20))
         const { serializedProperties, coinId } = serializeCoin(string, date)
-        const results = await Coin.update({ _id: coinId}, {$push: { data: serializedProperties }})
+        //const results = await Coin.update({ _id: coinId}, {$push: { data: serializedProperties }})
       } catch(err) {
         console.log(err)
       }
     }
   }
-
-  /*
-  const options = (url) => ({
-    uri: `https://coinmarketcap.com${url}`,
-    transform: (body) => {
-      return cheerio.load(body)
-    }
-  })
-
-  let $ = cheerio.load(text)
-  const results = $('a').toArray()
-  const url = results[0].attribs.href
-  $ = await rp(options(url))
-  let rows = $('table[id=currencies-all]').find('tbody').find('tr').slice(0, 50)
-  const row = rows[0]
-  console.log($(row).find('td.currency-name, td.col-symbol, td.market-cap, a.price, td.circulating-supply, td[data-timespan="7d"]').text())
-  */
-
-  /*
-  results.forEach(node => {
-    const url = node.attribs.href
-    $ = await rp(options(url))
-    console.log($)
-  })
-  */
 }
