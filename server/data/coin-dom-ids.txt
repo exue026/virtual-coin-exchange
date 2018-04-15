@@ -42,7 +42,6 @@ id-syscoin
 id-electroneum
 id-zcoin
 id-skycoin
-id-byteball
 id-nxt
 id-reddcoin
 id-particl
