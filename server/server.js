@@ -21,11 +21,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 /* connect to MongoDB */
-if (process.env.NODE_ENV === 'production') {
-  mongoose.connect(process.env.MONGODB_URI)
-} else {
-  mongoose.connect(CONFIG.MONGO_URL)
-}
+mongoose.connect(CONFIG.MONGO_URL)
 
 /* debug messages in the console */
 app.use(logger('dev'))
