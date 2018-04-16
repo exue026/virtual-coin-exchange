@@ -7,7 +7,7 @@
   "engines": {
     "node": "6.10.0",
     "npm": "3.10.10",
-    "yarn": "1.5.1"
+    "yarn": "1.6.0"
   },
   "scripts": {
     "babel-node": "babel-node --presets env",
@@ -20,7 +20,9 @@
     "test": "cd client && yarn test"
   },
   "dependencies": {
+    "agenda": "^1.0.3",
     "body-parser": "^1.18.2",
+    "cheerio": "^1.0.0-rc.2",
     "connect-mongo": "^2.0.1",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
@@ -28,7 +30,9 @@
     "mongoose": "^5.0.11",
     "morgan": "^1.9.0",
     "passport": "^0.4.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "request": "^2.85.0",
+    "request-promise": "^4.2.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

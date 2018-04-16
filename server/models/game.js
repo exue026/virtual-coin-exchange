@@ -10,4 +10,4 @@ const gameSchema = mongoose.Schema({
   startingBudget: Number,
 })
 
-export default mongoose.model('Game', userSchema)
+export default mongoose.model('Game', gameSchema)

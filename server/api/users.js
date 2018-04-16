@@ -6,13 +6,10 @@ import {
   ensureObjectIdFormat,
 } from '../middleware'
 
+import Game from '../models/game'
 import User from '../models/user'
 
 const router = express.Router()
-
-router.get('/:userId', ensureAuthenticated, (req, res, next) => {
-
-})
 
 router.get('/:userId/games',
   ensureAuthenticated,
@@ -26,5 +23,35 @@ router.get('/:userId/games',
       res.status(500).send({ error, })
     }
 })
+
+router.post('/:userId/games',
+  ensureAuthenticated,
+  ensureObjectIdFormat('userId'),
+  async(req, res, next) => {
+    const {
+      gameName,
+      startDate,
+      endDate,
+      createdBy,
+      players,
+      startingBudget,
+    } = req.body
+    try {
+      const newGame = new Game({
+        _id: mongoose.Types.ObjectId(),
+        name: gameName,
+        start: startDate,
+        end: endDate,
+        createdBy: createdBy,
+        players: [mongoose.Types.ObjectId(req.params.userId)],
+        startingBudget: startingBudget,
+      })
+      const results = await newGame.save()
+      res.send({ data: results })
+    } catch (err) {
+      console.log(err)
+      res.status(500).send({ err, })
+    }
+  })
 
 export default router
