@@ -13,7 +13,7 @@ router.get('/', async(req, res, next) => {
 })
 
 router.get('/test', async(req, res, next) => {
-  await addWeeklyCoinData()
+  //await addWeeklyCoinData()
   res.send()
 })
 

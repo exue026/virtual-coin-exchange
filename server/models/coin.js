@@ -15,4 +15,11 @@ const coinSchema = mongoose.Schema({
   ]
 })
 
+coinSchema.statics.getAllIds = function() {
+  return this.find({}, '_id')
+    .then(docs => {
+      return docs.map(doc => doc.id)
+    })
+}
+
 export default mongoose.model('Coin', coinSchema)

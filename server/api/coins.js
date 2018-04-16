@@ -1,15 +1,30 @@
 import express from 'express'
 
+import Coin from '../models/coin'
 import { getCoin } from '../data/coin-market-cap'
 
 const router = express.Router()
 
+router.get('/', async(req, res, next) => {
+  try {
+    const coinIds = await Coin.getAllIds()
+    res.send({ coins: coinIds })
+  } catch(err) {
+    res.status(500).send({ err: err.error })
+  }
+})
+
 router.get('/:id', async(req, res, next) => {
   try {
-    const coin = await getCoin('bitcoin')
-    res.send({ data: coin })
+    const id = req.params.id
+    const coin = await getCoin(id)
+    const coinHistory = (await Coin.findById(id)).data
+    res.send({
+      coin,
+      coinHistory,
+    })
   } catch (err) {
-    res.status(400).send({ err, })
+    res.status(500).send({ err: err })
   }
 })
 
