@@ -1,0 +1,15 @@
+.coin {
+  width: 90%;
+  background-color: rgba(32, 37, 49, 0.93);
+  margin: auto;
+  margin-bottom: 1px;
+  font-size: 14px;
+  padding: 5px;
+  text-align: left;
+  .difference{
+    margin-left: 5%;
+  }
+  .price{
+    margin-left: 5%;
+  }
+}

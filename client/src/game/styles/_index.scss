@@ -1,3 +1,73 @@
 .game-page-container {
   @import 'sidebar';
+  @import 'coins';
+  .body{
+    width: calc(100% - 100px);
+    background-color: $dark-accent;
+    height: 1000px;
+    float: right;
+  .profile{
+    width: 50px;
+    height:50px;
+    background-color: $dark-color;
+    float: right;
+    .picture{
+      width: 30px;
+      border-radius: 50%;
+      margin-left: 8px;
+      margin-top: 8px;
+    }
+    .arrow{
+
+    }
+    .name{
+      margin-top: 15px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  }
+  .search{
+    width: calc(100% - 50px);
+    background-color: $dark-color;
+    height:50px;
+    border-left: 1px solid #414652;
+    border-right: 1px solid #414652;
+    .box{
+      background-color: white;
+      border: 1px solid #eee;
+      /* border-radius: 5px; */
+      margin-bottom: 6px;
+      padding: 5px;
+      width: calc(100% - 78px);
+      margin: 8px;
+      margin-right: -5px;
+      border-bottom-left-radius: 5px;
+      border-top-left-radius: 5px;
+    }
+    .button{
+      background-color: $green;
+      padding: 5px;
+      /* width: 47%; */
+      border: 1px solid $green;
+      color: white;
+      border-radius: 5px;
+      margin-left: -1px;
+      float: right;
+      margin-right: 10px;
+      margin-top: 8px;
+      padding-left: 5px;
+    }
+  }
+  .page-title{
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    margin-top: 10px;
+    .overview{
+      background-color: $dark-color;
+      width:50%;
+      height:200px;
+    }
+  }
+  }
 }

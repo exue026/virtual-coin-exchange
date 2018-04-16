@@ -768,7 +768,8 @@ svg.recharts-surface {
   background-size: cover;
   /* -webkit-box-shadow: inset 0 0 0 1000px rgba(43, 55, 60, 0.890196); */
   /* box-shadow: inset 0 0 0 1000px rgba(43, 55, 60, 0.890196); */
-  background-color: #545865; }
+  background-color: #545865;
+  min-width: 750px; }
   .homepage .mainpage-header {
     height: 52px;
     display: flex;
@@ -829,36 +830,101 @@ svg.recharts-surface {
     width: 300px; }
 
 .game-page-container .sidebar {
-  width: 250px;
-  background-image: url(../../shared/img/background.png);
-  background-size: cover;
-  box-shadow: inset 0 0 0 1000px rgba(0, 16, 15, 0.2);
+  width: 100px;
+  color: white;
+  background-color: #5cc98b;
   position: fixed;
   height: 100%;
   font-size: 20px;
   top: 0px; }
   .game-page-container .sidebar .menu {
     top: 300px;
-    background-color: #1d2629;
+    background-color: #545865;
     height: 100%; }
-  .game-page-container .sidebar .picture {
-    width: 150px;
-    border-radius: 50%;
-    margin-left: 50px;
-    margin-top: 30px;
-    border: 5px solid #5cc98b; }
   .game-page-container .sidebar .profile {
     margin-top: 15px;
     text-align: center;
     margin-bottom: 20px; }
   .game-page-container .sidebar .title {
     font-size: 15px;
-    width: 250px;
-    height: 60px;
-    background-color: #1d2629;
+    width: 100px;
+    height: 100px;
+    color: white;
+    background-color: #545865;
     /* text-align: center; */
-    padding-top: 20px;
-    border-bottom: 1px solid #2a363b;
-    padding-left: 20px; }
+    padding-top: 40px;
+    border-bottom: 1px solid #414653;
+    padding-left: 12px; }
   .game-page-container .sidebar .title:hover {
-    background-color: #3c4d54; }
+    background-color: #414653; }
+
+.game-page-container .coin {
+  width: 90%;
+  background-color: rgba(32, 37, 49, 0.93);
+  margin: auto;
+  margin-bottom: 1px;
+  font-size: 14px;
+  padding: 5px;
+  text-align: left; }
+  .game-page-container .coin .difference {
+    margin-left: 5%; }
+  .game-page-container .coin .price {
+    margin-left: 5%; }
+
+.game-page-container .body {
+  width: calc(100% - 100px);
+  background-color: #414653;
+  height: 1000px;
+  float: right; }
+  .game-page-container .body .profile {
+    width: 50px;
+    height: 50px;
+    background-color: #545865;
+    float: right; }
+    .game-page-container .body .profile .picture {
+      width: 30px;
+      border-radius: 50%;
+      margin-left: 8px;
+      margin-top: 8px; }
+    .game-page-container .body .profile .name {
+      margin-top: 15px;
+      text-align: center;
+      margin-bottom: 20px; }
+  .game-page-container .body .search {
+    width: calc(100% - 50px);
+    background-color: #545865;
+    height: 50px;
+    border-left: 1px solid #414652;
+    border-right: 1px solid #414652; }
+    .game-page-container .body .search .box {
+      background-color: white;
+      border: 1px solid #eee;
+      /* border-radius: 5px; */
+      margin-bottom: 6px;
+      padding: 5px;
+      width: calc(100% - 78px);
+      margin: 8px;
+      margin-right: -5px;
+      border-bottom-left-radius: 5px;
+      border-top-left-radius: 5px; }
+    .game-page-container .body .search .button {
+      background-color: #5cc98b;
+      padding: 5px;
+      /* width: 47%; */
+      border: 1px solid #5cc98b;
+      color: white;
+      border-radius: 5px;
+      margin-left: -1px;
+      float: right;
+      margin-right: 10px;
+      margin-top: 8px;
+      padding-left: 5px; }
+  .game-page-container .body .page-title {
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    margin-top: 10px; }
+    .game-page-container .body .page-title .overview {
+      background-color: #545865;
+      width: 50%;
+      height: 200px; }
