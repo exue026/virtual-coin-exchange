@@ -113,11 +113,12 @@ router.post('/:userId/games/:gameId/coins', ensureObjectIdFormat('userId'), asyn
     for (let i = 0; i < user.games.length; i++) {
       if (user.games[i]._id.toString() === req.params.gameId){
         for (let j = 0; j < user.games[i].coins.length; j++) {
-          if (user.games[i].coins[j]._id.toString() === investmentId) {
-            user.games[i].budget += (quantity * (currPrice - user.games[i].coins[j].purchasedPrice))
-            user.games[i].coins[j].quantity -= quantity
-            if (user.games[i].coins[j].quantity === 0) {
-              // remove investment
+          let coins = user.games[i].coins
+          if (coins[j]._id.toString() === investmentId) {
+            user.games[i].budget += (quantity * (currPrice - coins[j].purchasedPrice))
+            coins[j].quantity -= quantity
+            if (coins[j].quantity <= 0) {
+              user.games[i].coins.splice(j, 1)
             }
             break
           }
