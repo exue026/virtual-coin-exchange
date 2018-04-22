@@ -9,7 +9,7 @@
 
   .menu{
     top: 300px;
-    background-color: $dark-color;
+    background-color: #333843;
     height:100%;
   }
   .profile{
@@ -22,12 +22,29 @@
     width: 100px;
     height: 100px;
     color: white;
-    background-color: #545865;
+    background-color: #333843;
     /* text-align: center; */
     padding-top: 40px;
     border-bottom: 1px solid #414653;
     padding-left: 12px;
+    -webkit-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
   }.title:hover{
-    background-color: $dark-accent;
+    transform: translate(5px, 0px);
+    background-color: $green;
+  }
+  .title-selected{
+    font-size: 15px;
+    width: 100px;
+    height: 100px;
+    color: white;
+    background-color: $green;
+    /* text-align: center; */
+    padding-top: 40px;
+    border-bottom: 1px solid $green;
+    padding-left: 12px;
+    transform: translate(5px, 0px);
+    background-color: $green;
   }
 }

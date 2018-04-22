@@ -10,10 +10,61 @@ class SideBar extends Component {
       email: '',
       password: '',
       selected: '',
+      Homepage: "title",
+      Ranking: "title",
+      Invest: "title",
+      Explore: "title",
+      Settings: "title",
     }
   }
   handleSelect = (event) => {
     this.props.onSelect(event);
+    if(event == "Homepage"){
+    this.setState({
+      Homepage: "title-selected",
+      Ranking: "title",
+      Invest: "title",
+      Explore: "title",
+      Settings: "title",
+    })
+    }
+    if(event == "Ranking"){
+    this.setState({
+      Homepage: "title",
+      Ranking: "title-selected",
+      Invest: "title",
+      Explore: "title",
+      Settings: "title",
+    })
+    }
+    if(event == "Invest"){
+    this.setState({
+      Homepage: "title",
+      Ranking: "title",
+      Invest: "title-selected",
+      Explore: "title",
+      Settings: "title",
+    })
+    }
+    if(event == "Settings"){
+    this.setState({
+      Homepage: "title",
+      Ranking: "title",
+      Invest: "title",
+      Explore: "title",
+      Settings: "title-selected",
+    })
+    }
+    if(event == "Explore"){
+    this.setState({
+      Homepage: "title",
+      Ranking: "title",
+      Invest: "title",
+      Explore: "title-selected",
+      Settings: "title",
+    })
+    }
+
   }
   // <img src={Profile} className = "picture" alt='Profile Pic' />
   // <div className = "profile">
@@ -23,19 +74,19 @@ class SideBar extends Component {
     return (
       <div className = "sidebar">
         <div className = "menu">
-          <div className = "title" onClick={() =>{this.handleSelect('Homepage')}}>
+          <div className = {this.state.Homepage} onClick={() =>{this.handleSelect('Homepage')}}>
             Homepage
           </div>
-          <div className = "title" onClick={() =>{this.handleSelect('Ranking')}}>
+          <div className = {this.state.Ranking} onClick={() =>{this.handleSelect('Ranking')}}>
             Ranking
           </div>
-          <div className = "title" onClick={() =>{this.handleSelect('Invest')}}>
+          <div className = {this.state.Invest} onClick={() =>{this.handleSelect('Invest')}}>
             Invest
           </div>
-          <div className = "title" onClick={() =>{this.handleSelect('Explore')}}>
+          <div className = {this.state.Explore} onClick={() =>{this.handleSelect('Explore')}}>
             Explore
           </div>
-          <div className = "title" onClick={() =>{this.handleSelect('Settings')}}>
+          <div className = {this.state.Settings} onClick={() =>{this.handleSelect('Settings')}}>
             Settings
           </div>
         </div>

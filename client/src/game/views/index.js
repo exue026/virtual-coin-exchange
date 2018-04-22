@@ -16,7 +16,7 @@ class GamePage extends Component {
     super(props)
 
     this.state = {
-      selected: '',
+      selected: 'Homepage',
     }
   }
   componentDidMount() {
@@ -39,12 +39,25 @@ class GamePage extends Component {
   onSelect = (value) => {
     this.setState({
       selected: value,
-    })-
+    })
     console.log(value);
   }
   renderOverView = () => {
     return(
-      <div className = "overview">
+      <div>
+        <div className = "overview">
+          Overview
+        </div>
+        <div>
+          <div className = "explore">
+            Explore
+            {this.renderTable()}
+          </div>
+          <div className = "myCoins">
+            My Coins
+            {this.renderTable()}
+          </div>
+        </div>
       </div>
     )
   }
@@ -64,14 +77,13 @@ class GamePage extends Component {
       name: 'GarliCoin',
       price: '1,000',
       difference: '+0.02',
-      }
+    },
     ]
     return(
       coins.map(coin =>
         <Coins
           key={coin.id}
           coin={coin}
-          onEnter={this.props.onEnterGame}
         />
       )
     )
@@ -87,6 +99,28 @@ class GamePage extends Component {
     return(
       <div>
       {this.renderTable()}
+      </div>
+    )
+  }
+  renderRanking = () => {
+    return(
+      <div className = "leadership">
+      Leadership Board
+        <div className = "coin">
+          Ceiline Zhang
+          <div className = "price">
+          10,100
+          </div>
+        </div>
+        <div className = "coin">
+          Ethan Xue
+        </div>
+        <div className = "coin">
+          Player 3
+        </div>
+        <div className = "coin">
+          Player 4
+        </div>
       </div>
     )
   }
@@ -112,6 +146,7 @@ class GamePage extends Component {
            <div className='page-title'>
               {this.state.selected == "Homepage" ? this.renderHome() : ''}
               {this.state.selected == "Invest" ? this.renderInvest() : ''}
+              {this.state.selected == "Ranking" ? this.renderRanking() : ''}
            </div>
         </div>
       </div>

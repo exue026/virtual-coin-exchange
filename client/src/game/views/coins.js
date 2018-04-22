@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Modal from '../../shared/views/modal'
 
 class Coins extends Component {
   constructor(props) {
@@ -10,13 +11,43 @@ class Coins extends Component {
       open: false,
     }
   }
+  onCloseInvestModal = () => {
+    this.setState({
+      open: false,
+    })
+  }
+  renderInvestModal = () => {
+    return(
+      <div>
+        <form>
+          <input
+            className = "dark-text-box"
+            type='text'
+            placeholder='Amount to sell'
+          />
+          <input
+            className = "dark-text-box"
+            type='text'
+            placeholder='Amount to buy'
+          />
+        </form>
+     </div>
+    )
+  }
+  setInvestModal = () => {
+    return(
+      <Modal title={this.props.coin.name} message={this.renderInvestModal()} closeModal={this.onCloseInvestModal}/>
+    )
+  }
   render() {
     return (
       <div className = "coin">
         {this.props.coin.name}
-        <button>
+          (${this.props.coin.price})
+        <button className = "buy-button" onClick = {() => {this.setState({open: true})}}>
           Buy/Sell
         </button>
+        {this.state.open ? this.setInvestModal() : ''}
      </div>
     )
   }

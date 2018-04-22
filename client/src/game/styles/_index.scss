@@ -1,6 +1,16 @@
 .game-page-container {
   @import 'sidebar';
   @import 'coins';
+  .leadership{
+    width: 500px;
+    background-color: #333843;
+    margin: auto;
+    height: 600px;
+    padding: 20px;
+    .winner{
+
+    }
+  }
   .body{
     width: calc(100% - 100px);
     background-color: $dark-accent;
@@ -16,9 +26,6 @@
       border-radius: 50%;
       margin-left: 8px;
       margin-top: 8px;
-    }
-    .arrow{
-
     }
     .name{
       margin-top: 15px;
@@ -63,10 +70,59 @@
     text-align: center;
     font-size: 25px;
     margin-top: 10px;
+
     .overview{
-      background-color: $dark-color;
-      width:50%;
+      background-color: rgb(51, 56, 68);
+      width:90%;
       height:200px;
+      margin: auto;
+      margin-bottom: 10px;
+      padding-top: 10px;
+    }
+    .explore{
+      width: 44%;
+      height: 200px;
+      background-color: #333844;
+      float: left;
+      /* margin: auto; */
+      margin-left: 5%;
+      padding-top: 10px;
+      overflow: scroll;
+    }
+    .myCoins{
+      width: 44%;
+      height: 450px;
+      background-color: #333844;
+      float: right;
+      /* margin: 50px; */
+      margin-right: 5%;
+      padding-top: 10px;
+    }
+    .First{
+      width: 200px;
+      height: 200px;
+      margin: auto;
+      background-color: rgb(51, 56, 68);
+    }
+    .Second{
+      width: 200px;
+      height: 200px;
+      float: left;
+      margin: auto;
+      background-color: rgb(51, 56, 68);
+    }
+    .Third{
+      width: 200px;
+      height: 200px;
+      float: right;
+      margin: auto;
+      background-color: rgb(51, 56, 68);
+    }
+    .Remaining{
+      width: 200px;
+      height: 200px;
+      margin: auto;
+      background-color: rgb(51, 56, 68);
     }
   }
   }
