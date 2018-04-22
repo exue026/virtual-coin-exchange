@@ -68,22 +68,31 @@ router.post('/:userId/games',
 
 /* user purchases a coin */
 router.put('/:userId/games/:gameId/coins', ensureObjectIdFormat('userId'), async(req, res, next) => {
+  const {
+    name,
+    purchasedPrice,
+    quantity
+  } = req.body
   const query = {
-    "_id": mongoose.Types.ObjectId(req.params.userId),
-    "games._id": mongoose.Types.ObjectId(req.params.gameId)
+    '_id': req.params.userId,
+    'games._id': req.params.gameId,
   }
   try {
-    await User.update(query, {
-      $push: {
-        "games.0.coins": {
+    const user = await User.findOne(query)
+    for (let i = 0; i < user.games.length; i++) {
+      if (user.games[i]._id.toString() === req.params.gameId) {
+        user.games[i].budget -= (purchasedPrice * quantity)
+        user.games[i].coins.push({
           _id: mongoose.Types.ObjectId(),
-          coin_id: req.body.name,
-          purchasedPrice: req.body.purchasedPrice,
-          quantity: req.body.quantity,
-        }
+          coin_id: name,
+          purchasedPrice: purchasedPrice,
+          quantity: quantity,
+        })
       }
-    })
+    }
+    await user.save()
   } catch (err) {
+    console.log(err)
     res.status(500).send({ err: err.error })
   }
   res.send()
