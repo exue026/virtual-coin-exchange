@@ -33,12 +33,13 @@ router.post('/:userId/games',
       startDate,
       endDate,
       createdBy,
-      players,
+      playerIds,
       startingBudget,
     } = req.body
+    let gameId = mongoose.Types.ObjectId()
     try {
       const newGame = new Game({
-        _id: mongoose.Types.ObjectId(),
+        _id: gameId,
         name: gameName,
         start: startDate,
         end: endDate,
@@ -47,11 +48,22 @@ router.post('/:userId/games',
         startingBudget: startingBudget,
       })
       const results = await newGame.save()
-      res.send({ data: results })
     } catch (err) {
       console.log(err)
       res.status(500).send({ err, })
     }
+    for (let playerId of playerIds) {
+      await User.update({ _id: mongoose.Types.ObjectId(playerId) }, {
+        $push: {
+          games: {
+            _id: gameId,
+            budget: startingBudget,
+            coins: [],
+          }
+        }
+      })
+    }
+    res.send()
   })
 
 /* user purchases a coin */
