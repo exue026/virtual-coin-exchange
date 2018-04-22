@@ -9,11 +9,7 @@ const router = express.Router()
 
 router.get('/', async(req, res, next) => {
   // await populateHistory()
-  res.send()
-})
-
-router.get('/test', async(req, res, next) => {
-  await addWeeklyCoinData()
+  // await addWeeklyCoinData()
   res.send()
 })
 
