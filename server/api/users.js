@@ -11,6 +11,7 @@ import User from '../models/user'
 
 const router = express.Router()
 
+/* get all games of a user */
 router.get('/:userId/games',
   ensureObjectIdFormat('userId'),
   async(req, res, next) => {
@@ -23,6 +24,7 @@ router.get('/:userId/games',
     }
 })
 
+/* create a game */
 router.post('/:userId/games',
   ensureObjectIdFormat('userId'),
   async(req, res, next) => {

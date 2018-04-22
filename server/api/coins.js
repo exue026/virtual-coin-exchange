@@ -5,6 +5,7 @@ import { getCoin } from '../data/coin-market-cap'
 
 const router = express.Router()
 
+/* get ids of all coins */
 router.get('/', async(req, res, next) => {
   try {
     const coinIds = await Coin.getAllIds()
@@ -14,6 +15,7 @@ router.get('/', async(req, res, next) => {
   }
 })
 
+/* get data regarding a specific coin */
 router.get('/:id', async(req, res, next) => {
   try {
     const id = req.params.id
