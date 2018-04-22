@@ -9,6 +9,10 @@ const userSchema = mongoose.Schema({
     {
       _id: mongoose.Schema.Types.ObjectId,
       budget: Number,
+      numTransactions: {
+        type: Number,
+        default: 0,
+      },
       coins: [
         {
           _id: mongoose.Schema.Types.ObjectId,
