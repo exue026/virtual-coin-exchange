@@ -6,6 +6,8 @@ import {
   ensureObjectIdFormat,
 } from '../middleware'
 
+import { getCoin } from '../data/coin-market-cap'
+
 import Game from '../models/game'
 import User from '../models/user'
 
@@ -23,6 +25,28 @@ router.get('/:userId/games',
       res.status(500).send({ error, })
     }
 })
+
+/* get basic info of a game */
+router.get('/:userId/games/:gameId',
+  ensureObjectIdFormat('userId'),
+  async(req, res, next) => {
+    try {
+      const user = await User.findOne({ _id: req.params.userId })
+      for (let game of user.games) {
+        // Current budget, number of trades, number of coins currently holding
+        if (game._id.toString() === req.params.gameId) {
+          res.send({ game: {
+            budge: game.budget,
+            numTransactions: game.numTransactions,
+            numCoins: game.coins.length,
+          }})
+        }
+      }
+    } catch(err) {
+      console.log(err)
+      res.status(500).send({ err: err })
+    }
+  })
 
 /* create a game */
 router.post('/:userId/games',
@@ -81,6 +105,7 @@ router.put('/:userId/games/:gameId/coins', ensureObjectIdFormat('userId'), async
     const user = await User.findOne(query)
     for (let i = 0; i < user.games.length; i++) {
       if (user.games[i]._id.toString() === req.params.gameId) {
+        user.games[i].numTransactions++
         user.games[i].budget -= (purchasedPrice * quantity)
         user.games[i].coins.push({
           _id: mongoose.Types.ObjectId(),
@@ -112,6 +137,7 @@ router.post('/:userId/games/:gameId/coins', ensureObjectIdFormat('userId'), asyn
     const user = await User.findOne(query)
     for (let i = 0; i < user.games.length; i++) {
       if (user.games[i]._id.toString() === req.params.gameId){
+        user.games[i].numTransactions++
         for (let j = 0; j < user.games[i].coins.length; j++) {
           let coins = user.games[i].coins
           if (coins[j]._id.toString() === investmentId) {
@@ -131,5 +157,31 @@ router.post('/:userId/games/:gameId/coins', ensureObjectIdFormat('userId'), asyn
   }
   res.send()
 })
+
+/* get all coins of a user */
+router.get('/:userId/games/:gameId/coins',
+  ensureObjectIdFormat('userId'),
+  async(req, res, next) => {
+    let games
+    try {
+      const user = await User.findOne({ _id: req.params.userId })
+      games = user.games
+    } catch (err) {
+      console.log(err)
+      res.send({ err, })
+    }
+    let coins
+    for (let game of games) {
+      if (game._id.toString() === req.params.gameId) {
+        coins = game.coins
+      }
+    }
+    const coinData = []
+    for (let coin of coins) {
+      coinData.push(await getCoin(coin.coin_id))
+    }
+    console.log(coinData)
+    res.send()
+  })
 
 export default router
