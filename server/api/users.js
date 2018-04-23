@@ -15,6 +15,7 @@ const router = express.Router()
 
 /* get all games of a user */
 router.get('/:userId/games',
+  ensureAuthenticated,
   ensureObjectIdFormat('userId'),
   async(req, res, next) => {
     try {
@@ -28,6 +29,7 @@ router.get('/:userId/games',
 
 /* get basic info of a game */
 router.get('/:userId/games/:gameId',
+  ensureAuthenticated,
   ensureObjectIdFormat('userId'),
   async(req, res, next) => {
     try {
@@ -50,6 +52,7 @@ router.get('/:userId/games/:gameId',
 
 /* create a game */
 router.post('/:userId/games',
+  ensureAuthenticated,
   ensureObjectIdFormat('userId'),
   async(req, res, next) => {
     const {
@@ -91,7 +94,10 @@ router.post('/:userId/games',
   })
 
 /* user purchases a coin */
-router.put('/:userId/games/:gameId/coins', ensureObjectIdFormat('userId'), async(req, res, next) => {
+router.put('/:userId/games/:gameId/coins',
+  ensureAuthenticated,
+  ensureObjectIdFormat('userId'),
+  async(req, res, next) => {
   const {
     name,
     purchasedPrice,
@@ -124,7 +130,10 @@ router.put('/:userId/games/:gameId/coins', ensureObjectIdFormat('userId'), async
 })
 
 /* user sells a coin */
-router.post('/:userId/games/:gameId/coins', ensureObjectIdFormat('userId'), async(req, res, next) => {
+router.post('/:userId/games/:gameId/coins',
+  ensureAuthenticated,
+  ensureObjectIdFormat('userId'),
+  async(req, res, next) => {
   const {
     investmentId,
     currPrice,
@@ -160,6 +169,7 @@ router.post('/:userId/games/:gameId/coins', ensureObjectIdFormat('userId'), asyn
 
 /* get all coins of a user */
 router.get('/:userId/games/:gameId/coins',
+  ensureAuthenticated,
   ensureObjectIdFormat('userId'),
   async(req, res, next) => {
     let games
@@ -180,8 +190,7 @@ router.get('/:userId/games/:gameId/coins',
     for (let coin of coins) {
       coinData.push(await getCoin(coin.coin_id))
     }
-    console.log(coinData)
-    res.send()
+    res.send({ coins: coinData })
   })
 
 export default router
