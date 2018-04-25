@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { NavLink } from 'react-router-dom'
 import Profile from '../../shared/img/profile.jpg'
 
 class SideBar extends Component {
@@ -86,8 +87,13 @@ class SideBar extends Component {
           <div className = {this.state.Explore} onClick={() =>{this.handleSelect('Explore')}}>
             Explore
           </div>
-          <div className = {this.state.Settings} onClick={() =>{this.handleSelect('Settings')}}>
-            Settings
+          <div className = {this.state.Settings}>
+            <NavLink
+              to='/games/settings'
+              activeClassName='selected-nav-link'
+            >
+              Settings
+            </NavLink>
           </div>
         </div>
      </div>

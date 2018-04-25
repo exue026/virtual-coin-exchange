@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { NavLink, Route } from 'react-router-dom'
+import PrivateRoute from '../../shared/views/private-route'
 import Profile from '../../shared/img/profile.jpg'
 import Chart from '../../shared/views/chart'
 import LoadingScreen from '../../shared/views/loading-screen'
@@ -143,15 +145,18 @@ class GamePage extends Component {
            {this.renderSearchBar()}
            </div>
            <div className='page-title'>
-              {this.state.selected == "Homepage" ? this.renderHome() : ''}
-              {this.state.selected == "Invest" ? this.renderInvest() : ''}
-              {this.state.selected == "Ranking" ? this.renderRanking() : ''}
+              {this.state.selected === "Homepage" ? this.renderHome() : ''}
+              {this.state.selected === "Invest" ? this.renderInvest() : ''}
+              {this.state.selected === "Ranking" ? this.renderRanking() : ''}
            </div>
+           <Route path='/games/settings' component={random} />
         </div>
       </div>
     )
   }
 }
+
+const random = () => <div>Settings</div>
 
 GamePage.propTypes = {
   loading: PropTypes.bool.isRequired,
