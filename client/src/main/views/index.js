@@ -33,7 +33,7 @@ class MainPage extends Component {
     if (this.props.loggedIn) {
       const { from } = this.props.location.state || { from: { pathname: '/home' } }
       return (
-        <Redirect to={from} />
+        <Redirect to={from} push/>
       )
     }
 

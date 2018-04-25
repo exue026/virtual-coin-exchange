@@ -30,7 +30,7 @@ class HomePage extends Component {
     this.props.loadPageData()
   }
 
-  componentWillMount() {
+  componentWillUnmount() {
     this.props.resetState()
   }
 
@@ -135,7 +135,7 @@ class HomePage extends Component {
 
     if (this.props.selectedGameId) {
       return (
-        <Redirect to='/games' />
+        <Redirect to='/games' push/>
       )
     }
 
