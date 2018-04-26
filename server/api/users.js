@@ -15,12 +15,17 @@ const router = express.Router()
 
 /* get all games of a user */
 router.get('/:userId/games',
-  ensureAuthenticated,
+  //ensureAuthenticated,
   ensureObjectIdFormat('userId'),
   async(req, res, next) => {
     try {
       const user = await User.findById(req.params.userId)
-      res.send({ data: user.games })
+      const games = []
+      for (let game of user.games) {
+        const gameData = await Game.findById(game._id)
+        games.push(Object.assign({}, gameData._doc))
+      }
+      res.send({ data: games, })
     } catch (error) {
       console.log(error)
       res.status(500).send({ error, })
