@@ -15,7 +15,7 @@ const router = express.Router()
 
 /* get all games of a user */
 router.get('/:userId/games',
-  //ensureAuthenticated,
+  ensureAuthenticated,
   ensureObjectIdFormat('userId'),
   async(req, res, next) => {
     try {

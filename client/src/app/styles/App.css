@@ -824,6 +824,11 @@ svg.recharts-surface {
       margin-left: 5%;
       /* margin-right: 6px; */
       position: relative; }
+  .homepage .empty-state {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    color: #999999; }
   .homepage .form-header {
     font-size: 50px;
     width: 300px; }

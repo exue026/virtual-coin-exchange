@@ -2,6 +2,13 @@
   @import 'topbar.scss';
   @import 'games.scss';
 
+  .empty-state {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    color: $mid-grey;
+  }
+
   height: 1000px;
   /* background-image: url(/static/media/picture.8dab5c54.jpg); */
   background-size: cover;

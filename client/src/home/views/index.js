@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
@@ -15,7 +16,7 @@ import {
 
 import Modal from '../../shared/views/modal'
 import TopBar from './topbar'
-import Games from './games'
+import Game from './game'
 
 class HomePage extends Component {
   constructor(props) {
@@ -82,44 +83,19 @@ class HomePage extends Component {
   }
 
   renderGames = () => {
-    var gamesNow = [
-      {
-        id: 1,
-        name: 'game1',
-        start: 'Monday',
-        end: 'Friday',
-        createdBy: 'Ceiline',
-        players: ['Ceiline', 'Ethan'],
-        startingBudget: '1000',
-      },
-      {
-        id: 2,
-        name: 'game2',
-        start: 'Monday',
-        end: 'Friday',
-        createdBy: 'Ceiline',
-        players: ['Ceiline', 'Ethan'],
-        startingBudget: '1000',
-      },
-      {
-        id: 3,
-        name: 'game3',
-        start: 'Monday',
-        end: 'Friday',
-        createdBy: 'Ceiline',
-        players: ['Ceiline', 'Ethan'],
-        startingBudget: '1000',
-      }
-    ]
-
-    return(
-      gamesNow.map( game =>
-        <Games
-          key={game.id}
-          game={game}
-          onEnter={this.props.onEnterGame}
-        />
+    if (this.props.games.length > 0) {
+      return(
+        this.props.games.map(game =>
+          <Game
+            key={game.id}
+            game={game}
+            onEnter={this.props.onEnterGame}
+          />
+        )
       )
+    }
+    return (
+      <div className='empty-state'>Looks like you don't have any new games.</div>
     )
   }
 
@@ -140,11 +116,9 @@ class HomePage extends Component {
     }
 
     return (
-      <div className = "homepage">
+      <div className='homepage'>
         <TopBar />
-        <button className= "floating-action-button" onClick={() => {this.onOpenNewModal()}}>
-         +
-        </button>
+        <FloatingActionButton onClick={() => {this.onOpenNewModal()}} />
         {this.state.open ? this.settingNewModal() : ''}
         {this.renderGames()}
       </div>
