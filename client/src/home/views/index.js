@@ -48,46 +48,49 @@ class HomePage extends Component {
     })
   }
 
-  renderNewModal = () => {
-    return(
-      <div>
-        <form>
-          <input
-            className = "dark-text-box"
-            type='text'
-            placeholder='Game Name'
-          />
-          <input
-            className = "dark-text-box"
-            type='text'
-            placeholder='Add players'
-          />
-          <input
-            className = "dark-text-box"
-            type='password'
-            placeholder='Duration of game'
-          />
-          <input
-            className = "dark-text-box"
-            type='password'
-            placeholder='Starting Budget'
-          />
-        </form>
-     </div>
-    )
-  }
-
   settingNewModal = () => {
     return(
       <Modal
           isOpen={this.state.open}
           onClose={this.onCloseNewModal}
           title="Hello World!"
+          renderOn='homepage'
         >
-        <div>Hello, World!</div>
+          <form onSubmit={this.onSubmit}>
+            <input
+              className = "dark-text-box"
+              type='text'
+              placeholder='Game Name'
+            />
+            <input
+              className = "dark-text-box"
+              type='text'
+              placeholder='Add players'
+            />
+            <input
+              className = "dark-text-box"
+              type='text'
+              placeholder='Duration of game'
+            />
+            <input
+              className = "dark-text-box"
+              type='text'
+              placeholder='Starting Budget'
+            />
+            <div className='submit-game'>
+              <input
+                className='submit-button'
+                type='submit'
+                value='Submit'
+              />
+            </div>
+          </form>
       </Modal>
-      //<Modal title="New Game" message={this.renderNewModal()} closeModal={this.onCloseNewModal}/>
     )
+  }
+
+  onSubmit = (event) => {
+    event.preventDefault()
   }
 
   renderGames = () => {

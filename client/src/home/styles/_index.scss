@@ -9,6 +9,11 @@
     color: $mid-grey;
   }
 
+  .submit-game {
+    display: flex;
+    justify-content: center;
+  }
+
   height: 1000px;
   /* background-image: url(/static/media/picture.8dab5c54.jpg); */
   background-size: cover;

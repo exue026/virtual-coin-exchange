@@ -693,21 +693,25 @@ svg.recharts-surface {
     height: 80px;
     background-color: #414653; }
 
-.ReactModalPortal .title-wrapper {
-  display: flex;
-  justify-content: center;
-  position: relative; }
-
-.ReactModalPortal .close-button {
-  transition: all .2s ease-in-out;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-  position: absolute;
-  top: 0px;
-  right: 0px; }
-  .ReactModalPortal .close-button:hover {
-    transform: scale(1.1); }
+.ReactModalPortal {
+  color: white; }
+  .ReactModalPortal .title-wrapper {
+    display: flex;
+    justify-content: center;
+    position: relative; }
+  .ReactModalPortal input[type='text'] {
+    color: white; }
+  .ReactModalPortal .close-button {
+    color: white;
+    transition: all .2s ease-in-out;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    right: 0px; }
+    .ReactModalPortal .close-button:hover {
+      transform: scale(1.1); }
 
 .mainpage-container {
   color: white; }
@@ -845,6 +849,9 @@ svg.recharts-surface {
     justify-content: center;
     margin-top: 20px;
     color: #999999; }
+  #homepage .submit-game {
+    display: flex;
+    justify-content: center; }
   #homepage .form-header {
     font-size: 50px;
     width: 300px; }

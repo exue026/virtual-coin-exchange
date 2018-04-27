@@ -10,6 +10,7 @@ const customStyles = {
     'bottom': 'auto',
     'left': '60px',
     'right': '60px',
+    'background-color': '#545865',
   }
 }
 
@@ -21,7 +22,7 @@ class Modal extends Component {
       <div>
         <ReactModal
           isOpen={this.props.isOpen}
-          parentSelector={() => document.getElementById('root')}
+          parentSelector={() => document.getElementById(this.props.renderOn)}
           onRequestClose={this.props.onClose}
           style={customStyles}
         >
@@ -45,6 +46,7 @@ Modal.propTypes = {
   title: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
   children: PropTypes.any.isRequired,
+  renderOn: PropTypes.string.isRequired,
 }
 
 export default Modal
