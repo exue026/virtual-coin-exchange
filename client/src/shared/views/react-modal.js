@@ -10,7 +10,7 @@ const customStyles = {
     'bottom': 'auto',
     'left': '60px',
     'right': '60px',
-    'background-color': '#545865',
+    'backgroundColor': '#545865',
   }
 }
 

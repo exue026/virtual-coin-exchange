@@ -699,7 +699,7 @@ svg.recharts-surface {
     display: flex;
     justify-content: center;
     position: relative; }
-  .ReactModalPortal input[type='text'] {
+  .ReactModalPortal input[type='text'], .ReactModalPortal input[type='date'] {
     color: white; }
   .ReactModalPortal .close-button {
     color: white;

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import Calendar from 'react-calendar'
+
 import Modal from '../../shared/views/react-modal'
 
 import { bindActionCreators } from 'redux'
@@ -69,8 +71,13 @@ class HomePage extends Component {
             />
             <input
               className = "dark-text-box"
-              type='text'
-              placeholder='Duration of game'
+              type='date'
+              placeholder='Start Date'
+            />
+            <input
+              className = "dark-text-box"
+              type='date'
+              placeholder='End Date'
             />
             <input
               className = "dark-text-box"
