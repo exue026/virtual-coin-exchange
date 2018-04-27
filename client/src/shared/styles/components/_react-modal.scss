@@ -1,0 +1,20 @@
+.ReactModalPortal {
+  .title-wrapper {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  .close-button {
+    transition: all .2s ease-in-out;
+    &:hover {
+      transform: scale(1.1);
+    }
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+  }
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import Modal from '../../shared/views/react-modal'
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -14,7 +15,7 @@ import {
   resetState,
 } from './actions'
 
-import Modal from '../../shared/views/modal'
+//import Modal from '../../shared/views/modal'
 import TopBar from './topbar'
 import Game from './game'
 
@@ -78,7 +79,14 @@ class HomePage extends Component {
 
   settingNewModal = () => {
     return(
-      <Modal title="New Game" message={this.renderNewModal()} closeModal={this.onCloseNewModal}/>
+      <Modal
+          isOpen={this.state.open}
+          onClose={this.onCloseNewModal}
+          title="Hello World!"
+        >
+        <div>Hello, World!</div>
+      </Modal>
+      //<Modal title="New Game" message={this.renderNewModal()} closeModal={this.onCloseNewModal}/>
     )
   }
 
@@ -87,7 +95,7 @@ class HomePage extends Component {
       return(
         this.props.games.map(game =>
           <Game
-            key={game.id}
+            key={game._id}
             game={game}
             onEnter={this.props.onEnterGame}
           />
@@ -116,10 +124,10 @@ class HomePage extends Component {
     }
 
     return (
-      <div className='homepage'>
+      <div id='homepage'>
         <TopBar />
         <FloatingActionButton onClick={() => {this.onOpenNewModal()}} />
-        {this.state.open ? this.settingNewModal() : ''}
+        {this.settingNewModal()}
         {this.renderGames()}
       </div>
     )

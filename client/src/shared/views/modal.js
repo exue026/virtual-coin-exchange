@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 
 class Modal extends Component {
   render() {
-    console.log("hi");
     return (
       <div>
           <div className = "modalTop">
