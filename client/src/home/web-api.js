@@ -10,4 +10,7 @@ export default {
       throw error
     }
   },
+  async createGame(newGame, userId) {
+    return await axios.post(`${this.baseUrl}/${userId}/games`, newGame)
+  },
 }

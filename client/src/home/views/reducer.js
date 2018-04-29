@@ -1,10 +1,20 @@
 import * as actions from './actions'
+import { GAME } from './constants'
 
 const initialState = {
   userId: null,
   loading: false,
   games: [],
   selectedGameId: null,
+  showCreateGame: false,
+  createGame: {
+    [GAME.GAME_NAME]: '',
+    [GAME.CREATED_BY]: '',
+    [GAME.START_DATE]: '',
+    [GAME.END_DATE]: '',
+    [GAME.PLAYERS]: '',
+    [GAME.STARTING_BUDGET]: '',
+  }
 }
 
 export default (state = initialState, action) => {
@@ -34,6 +44,15 @@ export default (state = initialState, action) => {
       return {
         ...initialState,
         userId: state.userId,
+      }
+
+    case actions.CHANGE_CREATE_GAME_FIELD:
+      return {
+        ...state,
+        createGame: {
+          ...state.createGame,
+          [action.field]: action.value,
+        }
       }
 
     default:

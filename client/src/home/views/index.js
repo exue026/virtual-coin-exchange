@@ -15,9 +15,11 @@ import {
   loadPageData,
   enterGame,
   resetState,
+  changeCreateGameField,
+  createGame,
 } from './actions'
 
-//import Modal from '../../shared/views/modal'
+import { GAME } from './constants'
 import TopBar from './topbar'
 import Game from './game'
 
@@ -55,7 +57,7 @@ class HomePage extends Component {
       <Modal
           isOpen={this.state.open}
           onClose={this.onCloseNewModal}
-          title="Hello World!"
+          title='Create a game'
           renderOn='homepage'
         >
           <form onSubmit={this.onSubmit}>
@@ -63,6 +65,8 @@ class HomePage extends Component {
               className = "dark-text-box"
               type='text'
               placeholder='Game Name'
+              value={this.props.createGame[GAME.GAME_NAME]}
+              onChange={e => this.onChangeInput(GAME.GAME_NAME, e.target.value)}
             />
             <input
               className = "dark-text-box"
@@ -73,16 +77,22 @@ class HomePage extends Component {
               className = "dark-text-box"
               type='date'
               placeholder='Start Date'
+              value={this.props.createGame[GAME.START_DATE]}
+              onChange={e => this.onChangeInput(GAME.START_DATE, e.target.value)}
             />
             <input
               className = "dark-text-box"
               type='date'
               placeholder='End Date'
+              value={this.props.createGame[GAME.END_DATE]}
+              onChange={e => this.onChangeInput(GAME.END_DATE, e.target.value)}
             />
             <input
               className = "dark-text-box"
               type='text'
               placeholder='Starting Budget'
+              value={this.props.createGame[GAME.STARTING_BUDGET]}
+              onChange={e => this.onChangeInput(GAME.STARTING_BUDGET, e.target.value)}
             />
             <div className='submit-game'>
               <input
@@ -96,8 +106,13 @@ class HomePage extends Component {
     )
   }
 
+  onChangeInput = (field, value) => {
+    this.props.onChangeCreateGameField(field, value)
+  }
+
   onSubmit = (event) => {
     event.preventDefault()
+    this.props.onCreateGame()
   }
 
   renderGames = () => {
@@ -151,22 +166,28 @@ class HomePage extends Component {
 HomePage.propTypes = {
   games: PropTypes.array.isRequired,
   selectedGameId: PropTypes.string,
+  createGame: PropTypes.object.isRequired,
   loading: PropTypes.bool.isRequired,
   loadPageData: PropTypes.func.isRequired,
   onEnterGame: PropTypes.func.isRequired,
   resetState: PropTypes.func.isRequired,
+  onChangeCreateGameField: PropTypes.func.isRequired,
+  onCreateGame: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = ({ homePage }) => ({
   loading: homePage.loading,
   selectedGameId: homePage.selectedGameId,
   games: homePage.games,
+  createGame: homePage.createGame,
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   loadPageData: loadPageData,
   onEnterGame: enterGame,
   resetState: resetState,
+  onChangeCreateGameField: changeCreateGameField,
+  onCreateGame: createGame,
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage)
