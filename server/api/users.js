@@ -43,7 +43,7 @@ router.get('/:userId/games/:gameId',
         // Current budget, number of trades, number of coins currently holding
         if (game._id.toString() === req.params.gameId) {
           res.send({ game: {
-            budge: game.budget,
+            budget: game.budget,
             numTransactions: game.numTransactions,
             numCoins: game.coins.length,
           }})

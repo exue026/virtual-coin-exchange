@@ -21,7 +21,8 @@ class GamePage extends Component {
     }
   }
   componentDidMount() {
-    this.props.loadPageData()
+    const gameId = this.props.match.params.gameId
+    this.props.loadPageData(gameId)
   }
   renderSearchBar = () => {
     return(
@@ -41,9 +42,9 @@ class GamePage extends Component {
     this.setState({
       selected: value,
     })
-    console.log(value);
   }
   renderOverView = () => {
+    const { overview } = this.props
     return(
       <div>
         <div className = "overview">
@@ -52,11 +53,14 @@ class GamePage extends Component {
         <div>
           <div className = "explore">
             Explore
-            {this.renderTable()}
+
           </div>
           <div className = "myCoins">
             My Coins
-            {this.renderTable()}
+            <div>Net Worth</div>
+            <div>Budget: {overview.budget}</div>
+            <div>Number of Transactions: {overview.numTransactions}</div>
+            <div>Coins holding: {overview.numCoins}</div>
           </div>
         </div>
       </div>
@@ -126,7 +130,7 @@ class GamePage extends Component {
     )
   }
   render() {
-    if (this.props.loading) {
+    if (!this.props.overview || this.props.loading) {
       return (
         <LoadingScreen
           iconType='bars'
@@ -161,10 +165,12 @@ const random = () => <div>Settings</div>
 GamePage.propTypes = {
   loading: PropTypes.bool.isRequired,
   loadPageData: PropTypes.func.isRequired,
+  overview: PropTypes.object,
 }
 
 const mapStateToProps = ({ gamePage }) => ({
   loading: gamePage.loading,
+  overview: gamePage.overview,
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

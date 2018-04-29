@@ -77,7 +77,7 @@ class Game extends Component {
           {moment(this.props.game.start).format("MMM Do YYYY")}-{moment(this.props.game.end).format("MMM Do YYYY")}
           <img src={Calendar} className = "iconTime" alt='Profile Pic' />
           {this.props.game.players.length}
-          <button className="third-button" onClick={this.props.onEnter}>
+          <button className="third-button" onClick={() => this.props.onEnter(this.props.game._id)}>
             Enter
           </button>
           <button className = "third-button-accent" onClick = {() => {this.onOpenModal()}}>

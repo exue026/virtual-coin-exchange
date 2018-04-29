@@ -32,10 +32,10 @@ export const setUserId = (userId) => (dispatch) => {
   })
 }
 
-export const enterGame = () => (dispatch) => {
+export const enterGame = (id) => (dispatch) => {
   dispatch({
     type: ENTER_GAME,
-    gameId: '1234566',
+    gameId: id,
   })
 }
 

@@ -19,7 +19,7 @@ class App extends Component {
         <div>
           <Route exact path='/' component={MainPage} />
           <PrivateRoute path='/home' component={HomePage} />
-          <PrivateRoute path='/games' component={GamePage} />
+          <PrivateRoute path='/games/:gameId' component={GamePage} />
         </div>
       </Router>
     )

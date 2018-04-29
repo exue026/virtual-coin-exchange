@@ -144,7 +144,13 @@ class HomePage extends Component {
 
     if (this.props.selectedGameId) {
       return (
-        <Redirect to='/games' push/>
+        <Redirect
+          to={{
+            pathname: `/games/${this.props.selectedGameId}`,
+            state: { referrer: this.props.selectedGameId }
+          }}
+          push
+        />
       )
     }
 

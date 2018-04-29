@@ -1,7 +1,9 @@
 import * as actions from './actions'
 
 const initialState = {
+  gameId: null,
   loading: false,
+  overview: null,
 }
 
 export default (state = initialState, action) => {
@@ -15,8 +17,9 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loading: false,
+        overview: action.overview,
+        gameId: action.gameId,
       }
-
     default:
       return state
   }
