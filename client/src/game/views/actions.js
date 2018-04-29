@@ -9,10 +9,16 @@ export const loadPageData = (gameId) => async(dispatch, getState) => {
   })
   const { homePage } = getState()
   try {
-    const response = await WebApi.getGameGameOveriew(homePage.userId, gameId)
+    const [ overview, coins ] = await Promise.all([
+      WebApi.getGameGameOverview(homePage.userId, gameId),
+      WebApi.getCoins(homePage.userId, gameId)
+    ])
+    console.log(overview)
+    console.log(coins)
     dispatch({
       type: LOAD_PAGE_DATA,
-      overview: response.data.game,
+      overview: overview.data.game,
+      coins: coins.data.coins,
       gameId,
     })
   } catch(err) {

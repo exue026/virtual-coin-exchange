@@ -43,7 +43,7 @@ class Coins extends Component {
     return (
       <div className = "coin">
         {this.props.coin.name}
-          (${this.props.coin.price})
+          (${this.props.coin.price_usd})
         <button className = "buy-button" onClick = {() => {this.setState({open: true})}}>
           Buy/Sell
         </button>

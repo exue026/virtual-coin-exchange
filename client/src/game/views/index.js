@@ -53,39 +53,22 @@ class GamePage extends Component {
         <div>
           <div className = "explore">
             Explore
-
-          </div>
-          <div className = "myCoins">
-            My Coins
             <div>Net Worth</div>
             <div>Budget: {overview.budget}</div>
             <div>Number of Transactions: {overview.numTransactions}</div>
             <div>Coins holding: {overview.numCoins}</div>
+          </div>
+          <div className = "myCoins">
+            My Coins
+            {this.renderTable()}
           </div>
         </div>
       </div>
     )
   }
   renderTable = () => {
-    var coins = [
-      {id: 1,
-      name: 'BitCoin',
-      price: '10,000',
-      difference: '+0.11',
-      },
-      {id: 2,
-      name: 'Ethereum',
-      price: '8,000',
-      difference: '+0.06',
-      },
-      {id: 3,
-      name: 'GarliCoin',
-      price: '1,000',
-      difference: '+0.02',
-    },
-    ]
     return(
-      coins.map(coin =>
+      this.props.coins.map(coin =>
         <Coins
           key={coin.id}
           coin={coin}
@@ -166,11 +149,13 @@ GamePage.propTypes = {
   loading: PropTypes.bool.isRequired,
   loadPageData: PropTypes.func.isRequired,
   overview: PropTypes.object,
+  coins: PropTypes.array,
 }
 
 const mapStateToProps = ({ gamePage }) => ({
   loading: gamePage.loading,
   overview: gamePage.overview,
+  coins: gamePage.coins,
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

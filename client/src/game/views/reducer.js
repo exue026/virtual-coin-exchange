@@ -4,6 +4,7 @@ const initialState = {
   gameId: null,
   loading: false,
   overview: null,
+  coins: null,
 }
 
 export default (state = initialState, action) => {
@@ -18,6 +19,7 @@ export default (state = initialState, action) => {
         ...state,
         loading: false,
         overview: action.overview,
+        coins: action.coins,
         gameId: action.gameId,
       }
     default:

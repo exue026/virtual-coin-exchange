@@ -193,7 +193,17 @@ router.get('/:userId/games/:gameId/coins',
     }
     const coinData = []
     for (let coin of coins) {
-      coinData.push(await getCoin(coin.coin_id))
+      const marketInfo = await getCoin(coin.coin_id)
+      const {
+        purchasedPrice,
+        purchasedTime,
+        quantity,
+      } = coin._doc
+      coinData.push(Object.assign({
+        purchasedPrice,
+        purchasedTime,
+        quantity,
+      }, marketInfo))
     }
     res.send({ coins: coinData })
   })
