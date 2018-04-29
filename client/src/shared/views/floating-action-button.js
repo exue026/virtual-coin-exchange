@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 class FloatingActionButton extends Component {
   render() {
     return (
-      <div className='floating-action-button'> + </div>
+      <div className='floating-action-button' onClick={this.props.onClick}> + </div>
     )
   }
 }

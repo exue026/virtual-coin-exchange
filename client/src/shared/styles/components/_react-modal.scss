@@ -1,0 +1,27 @@
+.ReactModalPortal {
+  color: white;
+
+  .title-wrapper {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  input[type='text'], input[type='date'] {
+    color: white;
+  }
+
+  .close-button {
+    color: white;
+    transition: all .2s ease-in-out;
+    &:hover {
+      transform: scale(1.1);
+    }
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+  }
+}

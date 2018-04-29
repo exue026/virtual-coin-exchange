@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import moment from 'moment'
 
 import Calendar from '../../shared/img/ic_perm_contact_calendar_black_24px.svg'
 import Money from '../../shared/img/ic_attach_money_black_24px.svg'
@@ -7,7 +8,7 @@ import Timer from '../../shared/img/ic_timer_black_24px.svg'
 import Modal from '../../shared/views/modal'
 
 
-class Games extends Component {
+class Game extends Component {
   constructor(props) {
     super(props)
 
@@ -73,9 +74,9 @@ class Games extends Component {
           <img src={Money} className = "icon" alt='Profile Pic' />
           {this.props.game.startingBudget}
           <img src={Timer} className = "iconTime" alt='Profile Pic' />
-          {this.props.game.start}-{this.props.game.end}
+          {moment(this.props.game.start).format("MMM Do YYYY")}-{moment(this.props.game.end).format("MMM Do YYYY")}
           <img src={Calendar} className = "iconTime" alt='Profile Pic' />
-          {this.props.game.players.toString()}
+          {this.props.game.players.length}
           <button className="third-button" onClick={this.props.onEnter}>
             Enter
           </button>
@@ -89,8 +90,9 @@ class Games extends Component {
   }
 }
 
-Games.propTypes = {
+Game.propTypes = {
+  game: PropTypes.object.isRequired,
   onEnter: PropTypes.func.isRequired,
 }
 
-export default Games
+export default Game

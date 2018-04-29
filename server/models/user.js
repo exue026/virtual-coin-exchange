@@ -19,6 +19,10 @@ const userSchema = mongoose.Schema({
           coin_id: String,
           quantity: Number,
           purchasedPrice: Number,
+          purchasedTime: {
+            type: Date,
+            default: new Date(),
+          }
         }
       ]
     }

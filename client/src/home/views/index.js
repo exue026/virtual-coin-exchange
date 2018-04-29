@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import Calendar from 'react-calendar'
+
+import Modal from '../../shared/views/react-modal'
+
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
@@ -11,11 +15,13 @@ import {
   loadPageData,
   enterGame,
   resetState,
+  changeCreateGameField,
+  createGame,
 } from './actions'
 
-import Modal from '../../shared/views/modal'
+import { GAME } from './constants'
 import TopBar from './topbar'
-import Games from './games'
+import Game from './game'
 
 class HomePage extends Component {
   constructor(props) {
@@ -30,7 +36,7 @@ class HomePage extends Component {
     this.props.loadPageData()
   }
 
-  componentWillMount() {
+  componentWillUnmount() {
     this.props.resetState()
   }
 
@@ -46,80 +52,83 @@ class HomePage extends Component {
     })
   }
 
-  renderNewModal = () => {
+  settingNewModal = () => {
     return(
-      <div>
-        <form>
-          <input
-            className = "dark-text-box"
-            type='text'
-            placeholder='Game Name'
-          />
-          <input
-            className = "dark-text-box"
-            type='text'
-            placeholder='Add players'
-          />
-          <input
-            className = "dark-text-box"
-            type='password'
-            placeholder='Duration of game'
-          />
-          <input
-            className = "dark-text-box"
-            type='password'
-            placeholder='Starting Budget'
-          />
-        </form>
-     </div>
+      <Modal
+          isOpen={this.state.open}
+          onClose={this.onCloseNewModal}
+          title='Create a game'
+          renderOn='homepage'
+        >
+          <form onSubmit={this.onSubmit}>
+            <input
+              className = "dark-text-box"
+              type='text'
+              placeholder='Game Name'
+              value={this.props.createGame[GAME.GAME_NAME]}
+              onChange={e => this.onChangeInput(GAME.GAME_NAME, e.target.value)}
+            />
+            <input
+              className = "dark-text-box"
+              type='text'
+              placeholder='Add players'
+            />
+            <input
+              className = "dark-text-box"
+              type='date'
+              placeholder='Start Date'
+              value={this.props.createGame[GAME.START_DATE]}
+              onChange={e => this.onChangeInput(GAME.START_DATE, e.target.value)}
+            />
+            <input
+              className = "dark-text-box"
+              type='date'
+              placeholder='End Date'
+              value={this.props.createGame[GAME.END_DATE]}
+              onChange={e => this.onChangeInput(GAME.END_DATE, e.target.value)}
+            />
+            <input
+              className = "dark-text-box"
+              type='text'
+              placeholder='Starting Budget'
+              value={this.props.createGame[GAME.STARTING_BUDGET]}
+              onChange={e => this.onChangeInput(GAME.STARTING_BUDGET, e.target.value)}
+            />
+            <div className='submit-game'>
+              <input
+                className='submit-button'
+                type='submit'
+                value='Submit'
+              />
+            </div>
+          </form>
+      </Modal>
     )
   }
 
-  settingNewModal = () => {
-    return(
-      <Modal title="New Game" message={this.renderNewModal()} closeModal={this.onCloseNewModal}/>
-    )
+  onChangeInput = (field, value) => {
+    this.props.onChangeCreateGameField(field, value)
+  }
+
+  onSubmit = (event) => {
+    event.preventDefault()
+    this.props.onCreateGame()
   }
 
   renderGames = () => {
-    var gamesNow = [
-      {
-        id: 1,
-        name: 'game1',
-        start: 'Monday',
-        end: 'Friday',
-        createdBy: 'Ceiline',
-        players: ['Ceiline', 'Ethan'],
-        startingBudget: '1000',
-      },
-      {
-        id: 2,
-        name: 'game2',
-        start: 'Monday',
-        end: 'Friday',
-        createdBy: 'Ceiline',
-        players: ['Ceiline', 'Ethan'],
-        startingBudget: '1000',
-      },
-      {
-        id: 3,
-        name: 'game3',
-        start: 'Monday',
-        end: 'Friday',
-        createdBy: 'Ceiline',
-        players: ['Ceiline', 'Ethan'],
-        startingBudget: '1000',
-      }
-    ]
-
-    return(
-      gamesNow.map( game =>
-        <Games
-          key={game.id}
-          game={game}
-          onEnter={this.props.onEnterGame}
-        />
+    if (this.props.games.length > 0) {
+      return(
+        this.props.games.map(game =>
+          <Game
+            key={game._id}
+            game={game}
+            onEnter={this.props.onEnterGame}
+          />
+        )
       )
+    }
+    return (
+      <div className='empty-state'>Looks like you don't have any new games.</div>
     )
   }
 
@@ -135,17 +144,15 @@ class HomePage extends Component {
 
     if (this.props.selectedGameId) {
       return (
-        <Redirect to='/games' />
+        <Redirect to='/games' push/>
       )
     }
 
     return (
-      <div className = "homepage">
+      <div id='homepage'>
         <TopBar />
-        <button className= "floating-action-button" onClick={() => {this.onOpenNewModal()}}>
-         +
-        </button>
-        {this.state.open ? this.settingNewModal() : ''}
+        <FloatingActionButton onClick={() => {this.onOpenNewModal()}} />
+        {this.settingNewModal()}
         {this.renderGames()}
       </div>
     )
@@ -159,22 +166,28 @@ class HomePage extends Component {
 HomePage.propTypes = {
   games: PropTypes.array.isRequired,
   selectedGameId: PropTypes.string,
+  createGame: PropTypes.object.isRequired,
   loading: PropTypes.bool.isRequired,
   loadPageData: PropTypes.func.isRequired,
   onEnterGame: PropTypes.func.isRequired,
   resetState: PropTypes.func.isRequired,
+  onChangeCreateGameField: PropTypes.func.isRequired,
+  onCreateGame: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = ({ homePage }) => ({
   loading: homePage.loading,
   selectedGameId: homePage.selectedGameId,
   games: homePage.games,
+  createGame: homePage.createGame,
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   loadPageData: loadPageData,
   onEnterGame: enterGame,
   resetState: resetState,
+  onChangeCreateGameField: changeCreateGameField,
+  onCreateGame: createGame,
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage)
