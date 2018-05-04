@@ -11,6 +11,7 @@ const customStyles = {
     'left': '60px',
     'right': '60px',
     'backgroundColor': '#545865',
+    'maxHeight': '85%',
   }
 }
 

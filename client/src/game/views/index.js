@@ -5,12 +5,11 @@ import { connect } from 'react-redux'
 import { NavLink, Route } from 'react-router-dom'
 import PrivateRoute from '../../shared/views/private-route'
 import Profile from '../../shared/img/profile.jpg'
-import Chart from '../../shared/views/chart'
 import LoadingScreen from '../../shared/views/loading-screen'
 import Sidebar from './side-bar'
 import Coins from './coins'
 
-import { loadPageData } from './actions'
+import { loadPageData, openCoinGeneralModal } from './actions'
 
 class GamePage extends Component {
   constructor(props) {
@@ -72,6 +71,8 @@ class GamePage extends Component {
         <Coins
           key={coin.id}
           coin={coin}
+          coinHistory={this.props.coinHistory}
+          openCoinGeneralModal={this.props.openCoinGeneralModal}
         />
       )
     )
@@ -92,7 +93,7 @@ class GamePage extends Component {
   }
   renderRanking = () => {
     return(
-      <div className = "leadership">
+      <div className="leadership">
       Leadership Board
         <div className = "coin">
           Ceiline Zhang
@@ -122,7 +123,7 @@ class GamePage extends Component {
       )
     }
     return(
-      <div className='game-page-container'>
+      <div id='game-page-container'>
         <Sidebar onSelect={this.onSelect}/>
         <div className='body'>
            <div>
@@ -150,16 +151,20 @@ GamePage.propTypes = {
   loadPageData: PropTypes.func.isRequired,
   overview: PropTypes.object,
   coins: PropTypes.array,
+  openCoinGeneralModal: PropTypes.func.isRequired,
+  coinHistory: PropTypes.array.isRequired,
 }
 
 const mapStateToProps = ({ gamePage }) => ({
   loading: gamePage.loading,
   overview: gamePage.overview,
   coins: gamePage.coins,
+  coinHistory: gamePage.coinGeneral.history,
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   loadPageData: loadPageData,
+  openCoinGeneralModal: openCoinGeneralModal,
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(GamePage)

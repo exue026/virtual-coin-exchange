@@ -20,7 +20,12 @@ router.get('/:id', async(req, res, next) => {
   try {
     const id = req.params.id
     const coin = await getCoin(id)
-    const coinHistory = (await Coin.findById(id)).data
+    const coinHistory = (await Coin.findById(id)).data.map(doc => {
+      return {
+        price: doc.price,
+        date: doc.date,
+      }
+    })
     res.send({
       coin,
       coinHistory,

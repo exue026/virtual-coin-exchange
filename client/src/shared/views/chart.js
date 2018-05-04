@@ -15,10 +15,13 @@ class Chart extends Component {
     return (
       <AreaChart width={this.props.outerWidth} height={this.props.outerHeight} data={this.props.data}>
         <CartesianGrid strokeDasharray='3 3'/>
-        <XAxis dataKey={this.props.xDataName}>
-          <Label value={this.props.xLabelName} offset={0} position='bottom' />
+        <XAxis dataKey={this.props.xDataName} stroke='white'>
+          <Label value={this.props.xLabelName} offset={0} position='bottom' stroke='white' />
         </XAxis>
-        <YAxis label={{ value: this.props.yLabelName, angle: -90, position: 'left' }}/>
+        <YAxis
+          label={{ value: this.props.yLabelName, angle: -90, position: 'left', stroke: 'white' }}
+          stroke='white'
+        />
         <Tooltip/>
         <Area type='monotone' dataKey={this.props.yDataName} stroke='#8884d8' fill='#8884d8' />
       </AreaChart>

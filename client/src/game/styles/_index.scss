@@ -1,4 +1,4 @@
-.game-page-container {
+#game-page-container {
   @import 'sidebar';
   @import 'coins';
   .leadership{
@@ -125,5 +125,10 @@
       background-color: rgb(51, 56, 68);
     }
   }
+  }
+
+  .recharts-wrapper {
+    margin-left: 30px;
+    margin-bottom: 30px;
   }
 }

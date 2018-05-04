@@ -9,5 +9,9 @@ export default {
   async getCoins(userId, gameId) {
     const response = await axios.get(`${this.baseUrl(userId, gameId)}/coins`)
     return response
-  }
+  },
+  async getCoinGeneral(coinId) {
+    const response = await axios.get(`/api/coins/${coinId}`)
+    return response
+  },
 }

@@ -5,6 +5,10 @@ const initialState = {
   loading: false,
   overview: null,
   coins: null,
+  coinGeneral: {
+    data: null,
+    history: [],
+  }
 }
 
 export default (state = initialState, action) => {
@@ -21,6 +25,15 @@ export default (state = initialState, action) => {
         overview: action.overview,
         coins: action.coins,
         gameId: action.gameId,
+      }
+    case actions.OPEN_COIN_GENERAL_MODAL:
+      return {
+        ...state,
+        coinGeneral: {
+          ...state.coinGeneral,
+          data: action.data,
+          history: action.history,
+        }
       }
     default:
       return state

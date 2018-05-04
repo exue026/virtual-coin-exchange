@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import Modal from '../../shared/views/modal'
+import PropTypes from 'prop-types'
+import Modal from '../../shared/views/react-modal'
+import Chart from '../../shared/views/chart'
 
 class Coins extends Component {
   constructor(props) {
@@ -19,6 +21,13 @@ class Coins extends Component {
   renderInvestModal = () => {
     return(
       <div>
+        <Chart
+          xDataName='date'
+          xLabelName='Date'
+          yDataName='price'
+          yLabelName='Price (USD)'
+          data={this.props.coinHistory}
+        />
         <form>
           <input
             className = "dark-text-box"
@@ -35,8 +44,15 @@ class Coins extends Component {
     )
   }
   setInvestModal = () => {
-    return(
-      <Modal title={this.props.coin.name} message={this.renderInvestModal()} closeModal={this.onCloseInvestModal}/>
+    return (
+      <Modal
+        isOpen={this.state.open}
+        onClose={this.onCloseInvestModal}
+        title={this.props.coin.name}
+        renderOn='game-page-container'
+      >
+        {this.renderInvestModal()}
+      </Modal>
     )
   }
   render() {
@@ -44,13 +60,24 @@ class Coins extends Component {
       <div className = "coin">
         {this.props.coin.name}
           (${this.props.coin.price_usd})
-        <button className = "buy-button" onClick = {() => {this.setState({open: true})}}>
+        <button className = "buy-button" onClick = {this.openModal}>
           Buy/Sell
         </button>
-        {this.state.open ? this.setInvestModal() : ''}
+        {this.setInvestModal()}
      </div>
     )
   }
+
+  openModal = () => {
+    this.setState({ open: true })
+    this.props.openCoinGeneralModal('bitcoin')
+  }
+}
+
+Coins.propTypes = {
+  openCoinGeneralModal: PropTypes.func.isRequired,
+  coinHistory: PropTypes.array.isRequired,
 }
 
 export default Coins
+

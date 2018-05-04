@@ -856,7 +856,7 @@ svg.recharts-surface {
     font-size: 50px;
     width: 300px; }
 
-.game-page-container .sidebar {
+#game-page-container .sidebar {
   width: 100px;
   color: white;
   background-color: #5cc98b;
@@ -864,15 +864,15 @@ svg.recharts-surface {
   height: 100%;
   font-size: 20px;
   top: 0px; }
-  .game-page-container .sidebar .menu {
+  #game-page-container .sidebar .menu {
     top: 300px;
     background-color: #333843;
     height: 100%; }
-  .game-page-container .sidebar .profile {
+  #game-page-container .sidebar .profile {
     margin-top: 15px;
     text-align: center;
     margin-bottom: 20px; }
-  .game-page-container .sidebar .title {
+  #game-page-container .sidebar .title {
     font-size: 15px;
     width: 100px;
     height: 100px;
@@ -885,10 +885,10 @@ svg.recharts-surface {
     -webkit-transition: all 0.1s ease-in-out;
     -o-transition: all 0.1s ease-in-out;
     transition: all 0.1s ease-in-out; }
-  .game-page-container .sidebar .title:hover {
+  #game-page-container .sidebar .title:hover {
     transform: translate(5px, 0px);
     background-color: #5cc98b; }
-  .game-page-container .sidebar .title-selected {
+  #game-page-container .sidebar .title-selected {
     font-size: 15px;
     width: 100px;
     height: 100px;
@@ -901,7 +901,7 @@ svg.recharts-surface {
     transform: translate(5px, 0px);
     background-color: #5cc98b; }
 
-.game-page-container .coin {
+#game-page-container .coin {
   width: 90%;
   background-color: #333844;
   margin: auto;
@@ -910,49 +910,49 @@ svg.recharts-surface {
   padding: 13px;
   text-align: left;
   border-radius: 5px; }
-  .game-page-container .coin .difference {
+  #game-page-container .coin .difference {
     margin-left: 5%; }
-  .game-page-container .coin .price {
+  #game-page-container .coin .price {
     margin-left: 5%; }
-  .game-page-container .coin .buy-button {
+  #game-page-container .coin .buy-button {
     float: right;
     background-color: #414653;
     border: 1px;
     color: #5cc98b; }
 
-.game-page-container .leadership {
+#game-page-container .leadership {
   width: 500px;
   background-color: #333843;
   margin: auto;
   height: 600px;
   padding: 20px; }
 
-.game-page-container .body {
+#game-page-container .body {
   width: calc(100% - 100px);
   background-color: #414653;
   height: 1000px;
   float: right; }
-  .game-page-container .body .profile {
+  #game-page-container .body .profile {
     width: 50px;
     height: 50px;
     background-color: #545865;
     float: right; }
-    .game-page-container .body .profile .picture {
+    #game-page-container .body .profile .picture {
       width: 30px;
       border-radius: 50%;
       margin-left: 8px;
       margin-top: 8px; }
-    .game-page-container .body .profile .name {
+    #game-page-container .body .profile .name {
       margin-top: 15px;
       text-align: center;
       margin-bottom: 20px; }
-  .game-page-container .body .search {
+  #game-page-container .body .search {
     width: calc(100% - 50px);
     background-color: #545865;
     height: 50px;
     border-left: 1px solid #414652;
     border-right: 1px solid #414652; }
-    .game-page-container .body .search .box {
+    #game-page-container .body .search .box {
       background-color: white;
       border: 1px solid #eee;
       /* border-radius: 5px; */
@@ -963,7 +963,7 @@ svg.recharts-surface {
       margin-right: -5px;
       border-bottom-left-radius: 5px;
       border-top-left-radius: 5px; }
-    .game-page-container .body .search .button {
+    #game-page-container .body .search .button {
       background-color: #5cc98b;
       padding: 5px;
       /* width: 47%; */
@@ -975,19 +975,19 @@ svg.recharts-surface {
       margin-right: 10px;
       margin-top: 8px;
       padding-left: 5px; }
-  .game-page-container .body .page-title {
+  #game-page-container .body .page-title {
     color: white;
     text-align: center;
     font-size: 25px;
     margin-top: 10px; }
-    .game-page-container .body .page-title .overview {
+    #game-page-container .body .page-title .overview {
       background-color: #333844;
       width: 90%;
       height: 200px;
       margin: auto;
       margin-bottom: 10px;
       padding-top: 10px; }
-    .game-page-container .body .page-title .explore {
+    #game-page-container .body .page-title .explore {
       width: 44%;
       height: 200px;
       background-color: #333844;
@@ -996,7 +996,7 @@ svg.recharts-surface {
       margin-left: 5%;
       padding-top: 10px;
       overflow: scroll; }
-    .game-page-container .body .page-title .myCoins {
+    #game-page-container .body .page-title .myCoins {
       width: 44%;
       height: 450px;
       background-color: #333844;
@@ -1004,25 +1004,29 @@ svg.recharts-surface {
       /* margin: 50px; */
       margin-right: 5%;
       padding-top: 10px; }
-    .game-page-container .body .page-title .First {
+    #game-page-container .body .page-title .First {
       width: 200px;
       height: 200px;
       margin: auto;
       background-color: #333844; }
-    .game-page-container .body .page-title .Second {
+    #game-page-container .body .page-title .Second {
       width: 200px;
       height: 200px;
       float: left;
       margin: auto;
       background-color: #333844; }
-    .game-page-container .body .page-title .Third {
+    #game-page-container .body .page-title .Third {
       width: 200px;
       height: 200px;
       float: right;
       margin: auto;
       background-color: #333844; }
-    .game-page-container .body .page-title .Remaining {
+    #game-page-container .body .page-title .Remaining {
       width: 200px;
       height: 200px;
       margin: auto;
       background-color: #333844; }
+
+#game-page-container .recharts-wrapper {
+  margin-left: 30px;
+  margin-bottom: 30px; }
