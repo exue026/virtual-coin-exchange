@@ -3,6 +3,7 @@ import WebApi from '../web-api'
 export const LOADING_PAGE_DATA = 'GAME/LOADING_PAGE_DATA'
 export const LOAD_PAGE_DATA = 'GAME/LOAD_PAGE_DATA'
 export const OPEN_COIN_GENERAL_MODAL = 'GAME/OPEN_COIN_GENERAL_MODAL'
+export const GET_ALL_COINS = 'GAME/GET_ALL_COINS'
 
 export const loadPageData = (gameId) => async(dispatch, getState) => {
   dispatch({
@@ -28,13 +29,25 @@ export const loadPageData = (gameId) => async(dispatch, getState) => {
 export const openCoinGeneralModal = (coinId) => async(dispatch, getState) => {
   try {
     const response = await WebApi.getCoinGeneral(coinId)
-    console.log(response)
     dispatch({
       type: OPEN_COIN_GENERAL_MODAL,
       data: response.data.coin,
       history: response.data.coinHistory,
     })
   } catch (err) {
+    console.log(err)
+  }
+}
+
+export const getAllCoins = () => async(dispatch, getState) => {
+  try {
+    const response = await WebApi.getAllCoins()
+    let coins = response.data.coins
+    dispatch({
+      type: GET_ALL_COINS,
+      coins,
+    })
+  } catch(err) {
     console.log(err)
   }
 }

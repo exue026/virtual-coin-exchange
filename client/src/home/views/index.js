@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Calendar from 'react-calendar'
 
 import Modal from '../../shared/views/react-modal'
 

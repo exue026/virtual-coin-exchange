@@ -7,9 +7,9 @@ import PrivateRoute from '../../shared/views/private-route'
 import Profile from '../../shared/img/profile.jpg'
 import LoadingScreen from '../../shared/views/loading-screen'
 import Sidebar from './side-bar'
-import Coins from './coins'
+import Coins from './coins_'
 
-import { loadPageData, openCoinGeneralModal } from './actions'
+import { loadPageData, openCoinGeneralModal, getAllCoins } from './actions'
 
 class GamePage extends Component {
   constructor(props) {
@@ -38,6 +38,9 @@ class GamePage extends Component {
     )
   }
   onSelect = (value) => {
+    if (value === 'Invest') {
+      this.props.getAllCoins()
+    }
     this.setState({
       selected: value,
     })
@@ -84,6 +87,7 @@ class GamePage extends Component {
       </div>
     )
   }
+
   renderInvest = () => {
     return(
       <div>
@@ -91,6 +95,29 @@ class GamePage extends Component {
       </div>
     )
   }
+
+  renderInvestTable = () => {
+    return (
+      <Coins />
+    )
+    /*
+    return (
+      <div>
+        {
+          this.props.allCoins.map(coin =>
+              <Coins
+                key={coin.id}
+                coin={coin}
+                coinHistory={this.props.coinHistory}
+                openCoinGeneralModal={this.props.openCoinGeneralModal}
+              />
+            )
+        }
+      </div>
+    )
+    */
+  }
+
   renderRanking = () => {
     return(
       <div className="leadership">
@@ -134,7 +161,7 @@ class GamePage extends Component {
            </div>
            <div className='page-title'>
               {this.state.selected === "Homepage" ? this.renderHome() : ''}
-              {this.state.selected === "Invest" ? this.renderInvest() : ''}
+              {this.state.selected === "Invest" ? this.renderInvestTable() : ''}
               {this.state.selected === "Ranking" ? this.renderRanking() : ''}
            </div>
            <Route path='/games/settings' component={random} />
@@ -153,6 +180,8 @@ GamePage.propTypes = {
   coins: PropTypes.array,
   openCoinGeneralModal: PropTypes.func.isRequired,
   coinHistory: PropTypes.array.isRequired,
+  allCoins: PropTypes.array.isRequired,
+  getAllCoins: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = ({ gamePage }) => ({
@@ -160,11 +189,13 @@ const mapStateToProps = ({ gamePage }) => ({
   overview: gamePage.overview,
   coins: gamePage.coins,
   coinHistory: gamePage.coinGeneral.history,
+  allCoins: gamePage.allCoins,
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   loadPageData: loadPageData,
   openCoinGeneralModal: openCoinGeneralModal,
+  getAllCoins: getAllCoins,
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(GamePage)

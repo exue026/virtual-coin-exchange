@@ -14,4 +14,8 @@ export default {
     const response = await axios.get(`/api/coins/${coinId}`)
     return response
   },
+  async getAllCoins() {
+    const response = await axios.get('/api/coins')
+    return response
+  }
 }

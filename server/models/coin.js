@@ -16,9 +16,13 @@ const coinSchema = mongoose.Schema({
 })
 
 coinSchema.statics.getAllIds = function() {
-  return this.find({}, '_id')
+  return this.find({}, '_id price')
     .then(docs => {
-      return docs.map(doc => doc.id)
+      return docs.map(doc => {
+        return {
+          id: doc._id,
+        }
+      })
     })
 }
 

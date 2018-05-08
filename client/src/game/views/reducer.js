@@ -8,7 +8,8 @@ const initialState = {
   coinGeneral: {
     data: null,
     history: [],
-  }
+  },
+  allCoins: [],
 }
 
 export default (state = initialState, action) => {
@@ -34,6 +35,11 @@ export default (state = initialState, action) => {
           data: action.data,
           history: action.history,
         }
+      }
+    case actions.GET_ALL_COINS:
+      return {
+        ...state,
+        allCoins: action.coins,
       }
     default:
       return state

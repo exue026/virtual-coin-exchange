@@ -7,14 +7,10 @@
     margin: auto;
     height: 600px;
     padding: 20px;
-    .winner{
-
-    }
   }
   .body{
     width: calc(100% - 100px);
     background-color: $dark-accent;
-    height: 1000px;
     float: right;
   .profile{
     width: 50px;
@@ -70,6 +66,7 @@
     text-align: center;
     font-size: 25px;
     margin-top: 10px;
+    background-color: #333843;
 
     .overview{
       background-color: rgb(51, 56, 68);
