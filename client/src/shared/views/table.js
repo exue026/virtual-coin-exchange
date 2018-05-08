@@ -12,7 +12,7 @@ class Table extends Component {
     return (
       <table className='table'>
         <tr>
-          {this.props.header.map(heading => <th key={heading}>heading</th>)}
+          {this.props.header.map(heading => <th key={heading}>{heading}</th>)}
         </tr>
         {this.props.data.map(row => <Row row={row} />)}
       </table>

@@ -3,8 +3,17 @@
   width: 100%;
 
   td, th {
-    border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
+  }
+
+  tr {
+    background-color: #333844;
+    border-bottom: 2px solid #545865;
+    cursor: default;
+  }
+
+  td {
+    font-size: 18px;
   }
 }

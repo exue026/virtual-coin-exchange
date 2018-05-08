@@ -8,10 +8,12 @@ import Table from '../../shared/views/table'
 class Coins extends Component {
   render() {
     return (
-      <Table
-        header={['Name']}
-        data={this.props.coins}
-      />
+      <div className='table-container'>
+        <Table
+          header={['Name']}
+          data={this.props.coins}
+        />
+      </div>
     )
   }
 }

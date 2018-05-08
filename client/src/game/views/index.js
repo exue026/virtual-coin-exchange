@@ -62,7 +62,6 @@ class GamePage extends Component {
           </div>
           <div className = "myCoins">
             My Coins
-            {this.renderTable()}
           </div>
         </div>
       </div>

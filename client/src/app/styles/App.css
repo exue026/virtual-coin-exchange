@@ -717,9 +717,14 @@ svg.recharts-surface {
   border-collapse: collapse;
   width: 100%; }
   .table td, .table th {
-    border: 1px solid #dddddd;
     text-align: left;
     padding: 8px; }
+  .table tr {
+    background-color: #333844;
+    border-bottom: 2px solid #545865;
+    cursor: default; }
+  .table td {
+    font-size: 18px; }
 
 .mainpage-container {
   color: white; }
@@ -921,8 +926,13 @@ svg.recharts-surface {
     margin-left: 5%; }
   #game-page-container .coin .price {
     margin-left: 5%; }
-  #game-page-container .coin .buy-button {
-    float: right;
+
+#game-page-container .table-container {
+  width: 100%;
+  margin-bottom: 50px;
+  margin-left: 50px;
+  margin-right: 50px; }
+  #game-page-container .table-container .buy-button {
     background-color: #414653;
     border: 1px;
     color: #5cc98b; }
@@ -986,7 +996,8 @@ svg.recharts-surface {
     text-align: center;
     font-size: 25px;
     margin-top: 10px;
-    background-color: #333843; }
+    display: flex;
+    justify-content: center; }
     #game-page-container .body .page-title .overview {
       background-color: #333844;
       width: 90%;

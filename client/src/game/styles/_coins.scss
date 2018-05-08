@@ -13,8 +13,16 @@
   .price{
     margin-left: 5%;
   }
-  .buy-button{
-    float: right;
+
+}
+
+.table-container {
+  width: 100%;
+  margin-bottom: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+
+  .buy-button {
     background-color: $dark-accent;
     border: 1px;
     color: $green;
