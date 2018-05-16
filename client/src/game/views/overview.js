@@ -4,7 +4,13 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 class Overview extends Component {
+  render() {
+    return (
+      <div className='overview'>
 
+      </div>
+    )
+  }
 }
 
 Overview.propTypes = {

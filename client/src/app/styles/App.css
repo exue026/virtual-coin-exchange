@@ -1000,7 +1000,8 @@ svg.recharts-surface {
     font-size: 25px;
     margin-top: 10px;
     display: flex;
-    justify-content: center; }
+    justify-content: center;
+    height: 800px; }
     #game-page-container .body .page-title .overview {
       background-color: #333844;
       width: 90%;

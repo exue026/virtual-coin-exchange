@@ -1,6 +1,8 @@
 #game-page-container {
   @import 'sidebar';
   @import 'coins';
+  @import 'overview';
+
   .leadership{
     width: 500px;
     background-color: #333843;
@@ -68,6 +70,7 @@
     margin-top: 10px;
     display: flex;
     justify-content: center;
+    height: 800px;
 
     .overview{
       background-color: rgb(51, 56, 68);

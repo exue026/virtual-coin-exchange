@@ -8,6 +8,7 @@ import Profile from '../../shared/img/profile.jpg'
 import LoadingScreen from '../../shared/views/loading-screen'
 import Sidebar from './side-bar'
 import Coins from './coins_'
+import Overview from './overview'
 
 import { loadPageData, openCoinGeneralModal, getAllCoins } from './actions'
 
@@ -139,6 +140,7 @@ class GamePage extends Component {
       </div>
     )
   }
+
   render() {
     if (!this.props.overview || this.props.loading) {
       return (
@@ -148,6 +150,8 @@ class GamePage extends Component {
         />
       )
     }
+    const path = this.props.location.pathname
+
     return(
       <div id='game-page-container'>
         <Sidebar onSelect={this.onSelect}/>
@@ -158,12 +162,16 @@ class GamePage extends Component {
            </div>
            {this.renderSearchBar()}
            </div>
-           <div className='page-title'>
-              {this.state.selected === "Homepage" ? this.renderHome() : ''}
-              {this.state.selected === "Invest" ? this.renderInvestTable() : ''}
-              {this.state.selected === "Ranking" ? this.renderRanking() : ''}
-           </div>
-           <Route path='/games/settings' component={random} />
+            { /*
+              this.state.selected === "Homepage" ? this.renderHome() : ''
+              this.state.selected === "Invest" ? this.renderInvestTable() : ''
+              this.state.selected === "Ranking" ? this.renderRanking() : ''
+              */
+            }
+           <Route exact path={`${path}`} component={Overview} />
+           <Route path={`${path}/rankings`} component={random} />
+           <Route path={`${path}/invest`} component={random} />
+           <Route path={`${path}/settings`} component={random} />
         </div>
       </div>
     )
