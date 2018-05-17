@@ -100,7 +100,7 @@ router.post('/:userId/games',
 
 /* user purchases a coin */
 router.put('/:userId/games/:gameId/coins',
-  ensureAuthenticated,
+  //ensureAuthenticated,
   ensureObjectIdFormat('userId'),
   async(req, res, next) => {
   const {
@@ -123,6 +123,7 @@ router.put('/:userId/games/:gameId/coins',
           coin_id: name,
           purchasedPrice: purchasedPrice,
           quantity: quantity,
+          purchasedTime: new Date(),
         })
       }
     }

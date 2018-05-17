@@ -940,6 +940,33 @@ svg.recharts-surface {
     border: 1px;
     color: #5cc98b; }
 
+#game-page-container .overview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 25px;
+  margin-bottom: 25px; }
+  #game-page-container .overview .progress-container {
+    background-color: #545865;
+    width: max-content;
+    padding-right: 25px;
+    padding-top: 25px; }
+  #game-page-container .overview .summary-coins-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 25px; }
+  #game-page-container .overview .summary-container {
+    background-color: #545865;
+    width: 415px;
+    padding: 25px;
+    color: white; }
+  #game-page-container .overview .coins-container {
+    background-color: #545865;
+    width: 415px;
+    padding: 25px;
+    color: white; }
+
 #game-page-container .leadership {
   width: 500px;
   background-color: #333843;
