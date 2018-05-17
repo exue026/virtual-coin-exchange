@@ -156,23 +156,21 @@ class GamePage extends Component {
       <div id='game-page-container'>
         <Sidebar onSelect={this.onSelect}/>
         <div className='body'>
-           <div>
-           <div className='profile'>
-             <img src={Profile} className = "picture" alt='Profile Pic' />
-           </div>
-           {this.renderSearchBar()}
-           </div>
-            { /*
-              this.state.selected === "Homepage" ? this.renderHome() : ''
-              this.state.selected === "Invest" ? this.renderInvestTable() : ''
-              this.state.selected === "Ranking" ? this.renderRanking() : ''
-              */
-            }
-           <Route exact path={`${path}`} component={Overview} />
-           <Route path={`${path}/rankings`} component={random} />
-           <Route path={`${path}/invest`} component={random} />
-           <Route path={`${path}/settings`} component={random} />
+          <div className='profile'>
+            <img src={Profile} className = "picture" alt='Profile Pic' />
+          </div>
+          {this.renderSearchBar()}
+          <Route exact path={`${path}`} component={Overview} />
+          <Route path={`${path}/rankings`} component={random} />
+          <Route path={`${path}/invest`} component={random} />
+          <Route path={`${path}/settings`} component={random} />
         </div>
+          { /*
+            this.state.selected === "Homepage" ? this.renderHome() : ''
+            this.state.selected === "Invest" ? this.renderInvestTable() : ''
+            this.state.selected === "Ranking" ? this.renderRanking() : ''
+            */
+          }
       </div>
     )
   }
