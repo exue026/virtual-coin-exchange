@@ -10,7 +10,7 @@
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# production
+# Production
 /build
 
 # Logs
