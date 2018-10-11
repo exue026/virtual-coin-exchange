@@ -60,7 +60,6 @@ class MainPage extends Component {
             />
           </div>
         </div>
-        <Footer />
         <ToastContainer />
       </div>
     )

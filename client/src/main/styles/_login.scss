@@ -1,16 +1,19 @@
 .login-form {
   width: 330px;
-  height: 370px;
+  height: 400px;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-align: center;
   align-items: center;
+  -ms-flex-direction: column;
   flex-direction: column;
   background-color: #eee;
   color: black;
   border-radius: 15px;
-  border: 3px solid $dark-color;
+  /* border: 3px solid #545865; */
   padding: 10px;
   margin-top: 50px;
-
+  
 .login-form-footer{
   margin-top: 8px;
   margin-bottom: 8px;
