@@ -15,7 +15,7 @@ const userSchema = mongoose.Schema({
       },
       coins: [
         {
-          _id: mongoose.Schema.Types.ObjectId,
+          _id: mongoose.Schema.Types.ObjectId, // userCoinsId
           coin_id: String,
           quantity: Number,
           purchasedPrice: Number,
