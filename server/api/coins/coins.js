@@ -1,6 +1,6 @@
 import express from 'express'
 
-import Coin from '../models/coin'
+import Coin from '../../models/coin'
 import { getCoin } from '../data/coin-market-cap'
 
 const router = express.Router()

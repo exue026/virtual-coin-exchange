@@ -4,12 +4,12 @@ import mongoose from 'mongoose'
 import {
   ensureAuthenticated,
   ensureObjectIdFormat,
-} from '../middleware'
+} from '../../middleware'
 
 import { getCoin } from '../data/coin-market-cap'
 
-import Game from '../models/game'
-import User from '../models/user'
+import Game from '../../models/game'
+import User from '../../models/user'
 
 const router = express.Router()
 

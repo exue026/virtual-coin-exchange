@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 
 const coinSchema = mongoose.Schema({
-  _id: String,
+  _id: mongoose.Schema.Types.ObjectId,
   symbol: String,
   data: [
     {
